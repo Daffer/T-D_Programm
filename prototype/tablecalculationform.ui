@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TableCalculationForm</class>
+ <widget class="QDialog" name="TableCalculationForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1325</width>
+    <height>387</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Информация о частицах</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1331</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>9</number>
+   </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>150</number>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Номер</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Площадь</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Периметр</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Длина</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Ширина</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Гладкость</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Форм-фактор</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Диаметр</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>ДиаметрГОСТ</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
