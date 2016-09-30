@@ -8,6 +8,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
     static class Program
     {
+	/// PASHKA-KOROL
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
