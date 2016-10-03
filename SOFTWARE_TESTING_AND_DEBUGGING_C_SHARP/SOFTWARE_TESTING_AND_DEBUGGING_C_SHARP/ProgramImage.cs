@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.IO;
 
 namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
@@ -121,6 +122,136 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 if ((J - 1 >= 0) && (I - 1 >= 0))
                     FuseToolforStack(needCheckedPixel, img, I - 1, J - 1);
             }
+        }
+
+        //  вспомогательная функция обработки краев
+        private void BorderProcessingHelper(Bitmap img, int height, int width, int x, int y)
+        {
+            double colour = ColourComponent(img, x, y);
+            if (colour != 255)
+            {
+                Fuse(x, y, img, width, height);
+            }
+            return;
+        }
+        //  обработка краев изображения
+        private void BorderProcessing(Bitmap img)
+        {
+            int i, j;
+            int h = img.Height;
+            int w = img.Width;
+
+            for (j = 0; j < h; j++)
+            {
+                BorderProcessingHelper(img, h, w, 0, j);
+                BorderProcessingHelper(img, h, w, 1, j);
+                BorderProcessingHelper(img, h, w, w - 2, j);
+                BorderProcessingHelper(img, h, w, w - 1, j);
+            }
+            for (j = 0; j < w; j++)
+            {
+                BorderProcessingHelper(img, h, w, j, 0);
+                BorderProcessingHelper(img, h, w, j, 1);
+                BorderProcessingHelper(img, h, w, j, h - 2);
+                BorderProcessingHelper(img, h, w, j, h - 1);
+            }
+            return;
+        }
+
+        //  получение негатива изображения
+        private void Negativ(Bitmap img)
+        {
+            int i, j;
+            for (i = 0; i < img.Width; i++)
+            {
+                for (j = 0; j < img.Height; j++)
+                {
+                    int r = 0, g = 0, b = 0;
+                    GetRGB(img, i, j, r, g, b);
+
+                    r = 255 - r;
+                    g = 255 - g;
+                    b = 255 - b;
+                    
+                    img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                }
+            }
+            return;
+        }
+
+        //  вспомогательная функция корректировки компонента цвета
+        private int ExtremateColor(int source, int changeval)
+        {
+            if (changeval > 0)
+            {
+                if (source > 127)
+                {
+                    int Check = source + changeval;
+                    if (Check > 255) return 255;
+                    else return Check;
+                }
+                else
+                {
+                    int Check = source - changeval;
+                    if (Check < 0) return 0;
+                    else return Check;
+                }
+            }
+            else
+            {
+                if (source > 127)
+                {
+                    int Check = source + changeval;
+                    if (Check < 127) return 127;
+                    else return Check;
+                }
+                else
+                {
+                    int Check = source - changeval;
+                    if (Check > 127) return 127;
+                    else return Check;
+                }
+            }
+        }
+
+        //  вспомогательная функция контрастирования пикселя
+        private int ContrastPixel(int val, int n)
+        {
+            double pixel;
+            double contrast = (100.0 + n) / 100.0;
+
+            contrast = contrast * contrast;
+
+            pixel = val / 255.0;
+            pixel = pixel - 0.5;
+            pixel = pixel * contrast;
+            pixel = pixel + 0.5;
+            pixel = pixel * 255;
+            if (pixel < 0) pixel = 0;
+            if (pixel > 255) pixel = 255;
+            return (int)pixel;
+
+        }
+        //  функция контрастирования изображения
+        private void Contrast(Bitmap img, int n)
+        {
+            int i, j;
+
+            for (i = 0; i < img.Width; i++)
+            {
+                for (j = 0; j < img.Height; j++)
+                {
+                    int r = 0, g = 0, b = 0;
+                    GetRGB(img, i, j, r, g, b);
+
+                    r = ContrastPixel(r, n);
+                    g = ContrastPixel(r, n);
+                    b = ContrastPixel(r, n);
+
+                    img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                }
+            }
+            return;
         }
     }
 }
