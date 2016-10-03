@@ -65,6 +65,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return square;
         }
 
+        //  вспомогательная функция осуществляющая анализ пикселя на засвеченность
         private void FuseToolforStack(Stack<Point> needCheckedPixel, Bitmap img, int x, int y)
         {
             int r = img.GetPixel(x, y).R;
@@ -92,9 +93,21 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 J = item.Y;
                 img.SetPixel(I,J,Color.FromArgb(255,255,255));
                 if ( I - 1 >= 0)
-                {
                     FuseToolforStack(needCheckedPixel, img, I - 1, J);
-                }
+                if ( J - 1 >= 0)
+                    FuseToolforStack(needCheckedPixel, img, I, J - 1);
+                if (I + 1 < h)
+                    FuseToolforStack(needCheckedPixel, img, I + 1, J);
+                if (J + 1 < w)
+                    FuseToolforStack(needCheckedPixel, img, I, J + 1);
+                if ((J + 1 < w) && (I + 1 < h))
+                    FuseToolforStack(needCheckedPixel, img, I + 1, J + 1);
+                if ((J - 1 >= 0) && (I + 1 < h))
+                    FuseToolforStack(needCheckedPixel, img, I + 1, J - 1);
+                if ((J + 1 < w) && (I - 1 >= 0))
+                    FuseToolforStack(needCheckedPixel, img, I - 1, J + 1);
+                if ((J - 1 >= 0) && (I - 1 >= 0))
+                    FuseToolforStack(needCheckedPixel, img, I - 1, J - 1);
             }
         }
     }
