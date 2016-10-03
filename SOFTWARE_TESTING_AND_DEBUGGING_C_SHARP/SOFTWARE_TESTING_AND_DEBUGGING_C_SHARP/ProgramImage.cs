@@ -65,7 +65,21 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return square;
         }
 
-        public void Fuse(int x, int y, Image img, int h, int w)
+        private void FuseToolforStack(Stack<Point> needCheckedPixel, Bitmap img, int x, int y)
+        {
+            int r = img.GetPixel(x, y).R;
+            int g = img.GetPixel(x, y).G;
+            int b = img.GetPixel(x, y).B;
+            double average = (r + g + b) / 3;
+            if (average!= 255)
+            {
+                Point item = new Point(x, y);
+                needCheckedPixel.Push(item);
+            }
+            return;
+        }
+
+        public void Fuse(int x, int y, Bitmap img, int h, int w)
         {
             int I, J;
             Point item = new Point(x, y);
@@ -76,7 +90,11 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 item = needCheckedPixel.Pop();
                 I = item.X;
                 J = item.Y;
-                img.
+                img.SetPixel(I,J,Color.FromArgb(255,255,255));
+                if ( I - 1 >= 0)
+                {
+                    FuseToolforStack(needCheckedPixel, img, I - 1, J);
+                }
             }
         }
     }
