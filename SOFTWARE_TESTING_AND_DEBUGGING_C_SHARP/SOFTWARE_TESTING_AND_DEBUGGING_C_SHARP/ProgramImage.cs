@@ -64,15 +64,27 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return square;
         }
-
+        //  вспомогательная функция, получающая RGB
+        private void GetRGB(Bitmap img, int x, int y, int r, int g, int b)
+        {
+            r = img.GetPixel(x, y).R;
+            g = img.GetPixel(x, y).G;
+            b = img.GetPixel(x, y).B;
+            return;
+        }
+        //  вспомогательная функция, получающая компоненту цвета
+        private double ColourComponent(Bitmap img, int x, int y)
+        {
+            int r = 0, g = 0, b = 0;
+            GetRGB(img, x, y, r, g, b);
+            double average = (r + g + b) / 3;
+            return average;
+        }
         //  вспомогательная функция осуществляющая анализ пикселя на засвеченность
         private void FuseToolforStack(Stack<Point> needCheckedPixel, Bitmap img, int x, int y)
         {
-            int r = img.GetPixel(x, y).R;
-            int g = img.GetPixel(x, y).G;
-            int b = img.GetPixel(x, y).B;
-            double average = (r + g + b) / 3;
-            if (average!= 255)
+            double colour = ColourComponent(img, x, y);
+            if (colour != 255)
             {
                 Point item = new Point(x, y);
                 needCheckedPixel.Push(item);
@@ -80,7 +92,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
 
-        public void Fuse(int x, int y, Bitmap img, int h, int w)
+        private void Fuse(int x, int y, Bitmap img, int h, int w)
         {
             int I, J;
             Point item = new Point(x, y);
