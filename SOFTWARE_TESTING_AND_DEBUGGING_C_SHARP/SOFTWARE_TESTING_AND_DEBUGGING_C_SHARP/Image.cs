@@ -9,6 +9,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
     class Image
     {
+        //  Вспомогательная функция для подсчета площади зоны (заносит новые пиксели для подсчета)
         private void FuseToolforStack(Stack<Point> needCheckedPixel, int [][] matrix, int newNum, int x, int y)
         {
             Point item = new Point(x, y);
@@ -17,6 +18,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
 
+        //  Подсчет площади выделенной зоны
         int Fuse(int x, int y, int num, int[][] matrix, int h, int w)
         {
             int square = 0;
@@ -62,5 +64,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return square;
         }
+
+
     }
 }
