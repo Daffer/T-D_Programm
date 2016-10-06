@@ -290,5 +290,46 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
+
+        public void Erosion(Bitmap image, int[,] mainmatrix)
+        {
+            int[,] matrix = new int[image.Width, image.Height];
+            int count;
+            int K, L;
+            for (int I = 1; I < image.Width - 3; I++)
+            {
+                for(int J = 1; J < image.Height - 3; J++)
+                {
+                    count = 0;
+                    K = -1;
+                    L = -1;
+                    while (((1 * mainmatrix[I + K, J + L]) != 0) && (K < 2)) 
+                    {
+                        count++;
+                        if (L<1)
+                        {
+                            L++;
+                        }
+                        else
+                        {
+                            L--;
+                            K++;
+                        }
+                    }
+                    if (count == 9)
+                        matrix[I, J] = 1;
+                    else
+                        matrix[I, J] = 0;
+                }
+            }
+            for (int I = 1; I < image.Width - 1; I++) 
+            {
+                for (int J = 1; J < image.Height - 1; J++) 
+                {
+                    mainmatrix[I, J] = matrix[I, J];
+                }
+            }
+            return;
+        }
     }
 }
