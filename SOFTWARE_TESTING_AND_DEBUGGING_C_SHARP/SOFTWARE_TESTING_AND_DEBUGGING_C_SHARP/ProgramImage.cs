@@ -243,13 +243,35 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 {
                     int r = 0, g = 0, b = 0;
                     GetRGB(img, i, j, r, g, b);
-
                     r = ContrastPixel(r, n);
                     g = ContrastPixel(r, n);
                     b = ContrastPixel(r, n);
-
                     img.SetPixel(i, j, Color.FromArgb(r, g, b));
                 }
+            }
+            return;
+        }
+
+        private double RedApproximation = 0.299;
+        private double GreenApproximation = 0.587;
+        private double BlueApproximation = 0.114;
+        // конвертация изображения
+        void ConvertImage(Bitmap image, int[][] matrix)
+        {
+            int r = 0, g = 0, b = 0;
+            int y;
+            for (int I = 0; I < image.Width; I++)
+            {
+                for (int J = 0; J < image.Height; J++)
+                {
+                    GetRGB(image, I, J, r, g, b);
+                    y = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
+                    if ((r == 0) && (g == 0) && (b == 0))
+                        matrix[I][J] = 1;
+                    else
+                        matrix[I][J] = 0;
+                }
+
             }
             return;
         }
