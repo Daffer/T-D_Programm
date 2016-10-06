@@ -437,9 +437,21 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     t = I;
                 }
             }
-
+            for (int I = 0; I < PixelMap.Width; I++) 
+            {
+                for (int J = 0; J < PixelMap.Height; J++) 
+                {
+                    GetRGB(PixelMap, I, J, r, g, b);
+                    res = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
+                    if (res > t)
+                        PixelMap.SetPixel(I, J, Color.FromArgb(0, 0, 0));
+                    else
+                        PixelMap.SetPixel(I, J, Color.FromArgb(255, 255, 255));
+                }
+            }
             return;
         }
+
 
 
         private int[,] InfoMatrix;
