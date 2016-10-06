@@ -391,6 +391,57 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
 
+        public void MethodOtsu()
+        {
+            int[] p = new int[256];// ?
+            double[] pp = new double[256];//?
+            int total = 0;
+            int r = 0, g = 0, b = 0, res = 0;
+            for (int I = 0; I < p.Length; I++) 
+                p[I] = 0;
+            for (int I = 0; I< PixelMap.Width; I++)
+            {
+                for(int J = 0; J<PixelMap.Height; J++)
+                {
+                    GetRGB(PixelMap, I, J, r, g, b);
+                    res = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
+                    p[res]++;
+                }
+            }
+            for (int I = 0; I < 256; I++)
+                total += p[I];
+            for (int I = 0; I < 256; I++)
+                pp[I] = Convert.ToDouble(p[I]) / Convert.ToDouble(total);
+            int t = 0;
+            double q1, q2, m1, m2, s1, s2 ,sw = Double.MaxValue; //?
+            for (int I = 0; I< 256; I++)
+            {
+                q1 = q2 = 0;
+                m1 = m2 = 0;
+                s1 = s2 = 0;
+                for (int J = 0; J <= I; J++)
+                    q1 += pp[J];
+                for (int J = I + 1; J < 256; J++)
+                    q2 += pp[J];
+                for (int J = 0; J <= I; J++) 
+                    m1 += J * pp[J] / q1;
+                for (int J = I + 1; J < 256; J++)
+                    m2 += J * pp[J] / q2;
+                for (int J = 0; J <= I; J++)
+                    s1 += Math.Pow((J - m1), 2) * pp[J] / q1;
+                for (int J = I + 1; J < 256; J++)
+                    s2 += Math.Pow((J - m2), 2) * pp[J] / q2;
+                if ((q1 * s1 + q2 * s2) < sw)
+                {
+                    sw = q1 * s1 + q2 * s2;
+                    t = I;
+                }
+            }
+
+            return;
+        }
+
+
         private int[,] InfoMatrix;
         private Bitmap PixelMap;
     }
