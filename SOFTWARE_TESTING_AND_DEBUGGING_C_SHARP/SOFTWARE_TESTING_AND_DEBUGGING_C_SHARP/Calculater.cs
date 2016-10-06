@@ -15,7 +15,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             int xlu, ylu;
             int xrd, yrd;
             int xn, yn;
-            int xl, yl;
             for (int N = 2; N <= num; N++)
             {
                 xlu = w;
