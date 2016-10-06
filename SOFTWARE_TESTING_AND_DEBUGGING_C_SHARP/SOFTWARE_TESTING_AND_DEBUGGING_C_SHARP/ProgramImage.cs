@@ -256,7 +256,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         private double GreenApproximation = 0.587;
         private double BlueApproximation = 0.114;
         // конвертация изображения
-        void ConvertImage(Bitmap image, int[][] matrix)
+        public void ConvertImage(Bitmap image, int[][] matrix)
         {
             int r = 0, g = 0, b = 0;
             int y;
@@ -272,6 +272,21 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                         matrix[I][J] = 0;
                 }
 
+            }
+            return;
+        }
+
+        public void BackConvertImage(Bitmap image,int [][] matrix)
+        {
+            for (int I = 0; I < image.Width; I++)
+            {
+                for (int J = 0; J < image.Height; J++)
+                {
+                    if (matrix[I][J] == 1)
+                        image.SetPixel(I, J, Color.FromArgb(0, 0, 0));
+                    else if (matrix[I][J] == 0)
+                        image.SetPixel(I, J, Color.FromArgb(0, 0, 0));
+                }
             }
             return;
         }
