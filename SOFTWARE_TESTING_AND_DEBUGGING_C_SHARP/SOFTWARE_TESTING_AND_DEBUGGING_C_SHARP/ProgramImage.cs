@@ -291,6 +291,8 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
 
+
+        // Функция эрозии изображения
         public void Erosion(Bitmap image, int[,] mainmatrix)
         {
             int[,] matrix = new int[image.Width, image.Height];
@@ -303,7 +305,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     count = 0;
                     K = -1;
                     L = -1;
-                    while (((1 * mainmatrix[I + K, J + L]) != 0) && (K < 2)) 
+                    while ((mainmatrix[I + K, J + L] != 0) && (K < 2)) 
                     {
                         count++;
                         if (L<1)
@@ -331,5 +333,49 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
+
+        //  Дилатация изображения
+        public void Dilatation(Bitmap image,int [,] mainmatrix)
+        {
+            int h = PixelMap.Height;
+            int w = PixelMap.Width;
+            int[,] matrix = new int[w, h];
+            for (int I = 0; I < w; I++) 
+            {
+                for (int J = 0; J < h; J++) 
+                {
+                    matrix[I, J] = 0;
+                }
+            }
+            int result;
+            for (int I = 1; I<w; I++)
+            {
+                for (int J = 1; J<h; J++)
+                {
+                    result = 0;
+                    for (int K = -1; K <= 1; K++) 
+                    {
+                        for (int L = -1; L <= 1; L++) 
+                        {
+                            result += mainmatrix[I + K, J + L];
+                        }
+                    }
+                    if (result > 0)
+                        matrix[I, J] = 1;
+                    else
+                        matrix[I, J] = 0;
+                }
+            }
+            for (int I = 0; I < w - 1; I++)
+            {
+                for (int J = 0; J < h - 1; J++)
+                {
+                    mainmatrix[I, J] = matrix[I, J];
+                }
+            }
+            return;
+        }
+
+        private Bitmap PixelMap = new Bitmap(100,100);
     }
 }
