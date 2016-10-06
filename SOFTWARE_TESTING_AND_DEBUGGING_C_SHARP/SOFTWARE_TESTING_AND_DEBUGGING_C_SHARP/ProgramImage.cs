@@ -442,6 +442,50 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
+        //  Вспомогательная функция определяющая границу изображения
+        private bool IsBorder(int[,] a, int I, int J, int h, int w)
+        {
+            if ((I > 0) && (a[I - 1, J] == 0))
+                return true;
+            if ((I < h - 1) && (a[I + 1, J] == 0))
+                return true;
+            if ((J < w - 1) && (a[I, J + 1] == 0))
+                return true;
+            if ((J > 0) && (a[I, J - 1] == 0))
+                return true;
+            return false;
+        }
+        //  Подсчет периметра
+        private int Perimetr(int [,] a, int num, int h,int w)
+        {
+            int result = 0;
+            int count = 0;
+            int count_bor = 0;
+            bool is_border;
+            for (int I = 0; I < h; I++) 
+            {
+                for (int J = 0; J < w; J++)
+                {
+                    is_border = false;
+                    if (a[I,J] == num)
+                        is_border = IsBorder(a, I, J, h, w);
+                    if (is_border)
+                    {
+                        count_bor++;
+                        if ((I > 0) && (J > 0) && (!IsBorder(a, I - 1, J, h, w)) && (!IsBorder(a, I, J - 1, h, w)))
+                            count++;
+                        if ((I < h - 1) && (J > 0) && (!IsBorder(a, I + 1, J, h, w)) && (!IsBorder(a, I, J - 1, h, w)))
+                            count++;
+                        if ((I < h - 1) && (J < w - 1) && (!IsBorder(a, I + 1, J, h, w)) && (!IsBorder(a, I, J + 1, h, w)))
+                            count++;
+                        if ((I > 0) && (J < w - 1) && (!IsBorder(a, I - 1, J, h, w)) && (!IsBorder(a, I, J + 1, h, w)))
+                            count++;
+                    }
+                }
+            }
+            result = Convert.ToInt32(count_bor + Convert.ToDouble(count * 0.2071));
+            return result;
+        }
 
         private int[,] InfoMatrix;
         private Bitmap PixelMap;
