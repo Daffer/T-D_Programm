@@ -256,7 +256,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         private double GreenApproximation = 0.587;
         private double BlueApproximation = 0.114;
         // конвертация изображения
-        public void ConvertImage(Bitmap image, int[,] matrix)
+        public void ConvertImage(Bitmap image)
         {
             int r = 0, g = 0, b = 0;
             int y;
@@ -267,24 +267,25 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     GetRGB(image, I, J, r, g, b);
                     y = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
                     if ((r == 0) && (g == 0) && (b == 0))
-                        matrix[I, J] = 1;
+                        InfoMatrix[I, J] = 1;
                     else
-                        matrix[I, J] = 0;
+                        InfoMatrix[I, J] = 0;
                 }
 
             }
             return;
         }
 
-        public void BackConvertImage(Bitmap image,int [,] matrix)
+        //  функция обратной конвертации
+        public void BackConvertImage(Bitmap image)
         {
             for (int I = 0; I < image.Width; I++)
             {
                 for (int J = 0; J < image.Height; J++)
                 {
-                    if (matrix[I, J] == 1)
+                    if (InfoMatrix[I, J] == 1)
                         image.SetPixel(I, J, Color.FromArgb(0, 0, 0));
-                    else if (matrix[I, J] == 0)
+                    else if (InfoMatrix[I, J] == 0)
                         image.SetPixel(I, J, Color.FromArgb(0, 0, 0));
                 }
             }
@@ -293,7 +294,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 
 
         // Функция эрозии изображения
-        public void Erosion(Bitmap image, int[,] mainmatrix)
+        public void Erosion(Bitmap image)
         {
             int[,] matrix = new int[image.Width, image.Height];
             int count;
@@ -305,7 +306,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     count = 0;
                     K = -1;
                     L = -1;
-                    while ((mainmatrix[I + K, J + L] != 0) && (K < 2)) 
+                    while ((InfoMatrix[I + K, J + L] != 0) && (K < 2)) 
                     {
                         count++;
                         if (L<1)
@@ -328,14 +329,14 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             {
                 for (int J = 1; J < image.Height - 1; J++) 
                 {
-                    mainmatrix[I, J] = matrix[I, J];
+                    InfoMatrix[I, J] = matrix[I, J];
                 }
             }
             return;
         }
 
         //  Дилатация изображения
-        public void Dilatation(Bitmap image,int [,] mainmatrix)
+        public void Dilatation(Bitmap image)
         {
             int h = PixelMap.Height;
             int w = PixelMap.Width;
@@ -357,7 +358,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     {
                         for (int L = -1; L <= 1; L++) 
                         {
-                            result += mainmatrix[I + K, J + L];
+                            result += InfoMatrix[I + K, J + L];
                         }
                     }
                     if (result > 0)
@@ -370,12 +371,13 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             {
                 for (int J = 0; J < h - 1; J++)
                 {
-                    mainmatrix[I, J] = matrix[I, J];
+                    InfoMatrix[I, J] = matrix[I, J];
                 }
             }
             return;
         }
 
-        private Bitmap PixelMap = new Bitmap(100,100);
+        private int[,] InfoMatrix;
+        private Bitmap PixelMap;
     }
 }
