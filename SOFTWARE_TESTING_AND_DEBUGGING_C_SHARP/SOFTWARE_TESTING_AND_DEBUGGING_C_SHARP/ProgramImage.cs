@@ -11,19 +11,19 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
     class ProgramImage
     {
         //  Вспомогательная функция для подсчета площади зоны (заносит новые пиксели для подсчета)
-        private void SquareToolforStack(Stack<Point> needCheckedPixel, int [][] matrix, int newNum, int x, int y)
+        private void SquareToolforStack(Stack<Point> needCheckedPixel, int [,] matrix, int newNum, int x, int y)
         {
             Point item = new Point(x, y);
             needCheckedPixel.Push(item);
-            matrix[x][y] = newNum;
+            matrix[x, y] = newNum;
             return;
         }
 
         //  Подсчет площади выделенной зоны
-        int SquareCalculate(int x, int y, int num, int[][] matrix, int h, int w)
+        int SquareCalculate(int x, int y, int num, int[,] matrix, int h, int w)
         {
             int square = 0;
-            int oldNum = matrix[x][y];
+            int oldNum = matrix[x, y];
             Stack<Point> needCheckedPixel = new Stack<Point>();
             Point item = new Point(x, y);
             int I, J;
@@ -33,31 +33,31 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 item = needCheckedPixel.Pop();
                 I = item.X;
                 J = item.Y;
-                if (matrix[I][J] != num)
+                if (matrix[I, J] != num)
                 {
-                    matrix[I][J] = num;
+                    matrix[I, J] = num;
                     square++;
                 }
                 if (I < h - 1)
-                    if (matrix[I + 1][J] == oldNum)
+                    if (matrix[I + 1, J] == oldNum)
                     {
                         SquareToolforStack(needCheckedPixel, matrix, num, I + 1, J);
                         square++;
                     }
                 if (I > 0)
-                    if ( matrix[I -1][J] == oldNum)
+                    if ( matrix[I -1, J] == oldNum)
                     {
                         SquareToolforStack(needCheckedPixel, matrix, num, I - 1, J);
                         square++;
                     }
-                if (J < w-1)
-                    if (matrix[I][J+1] == oldNum)
+                if (J < w - 1)
+                    if (matrix[I, J + 1] == oldNum) 
                     {
                         SquareToolforStack(needCheckedPixel, matrix, num, I, J + 1);
                         square++;
                     }
                 if (J > 0)
-                    if (matrix[I][J-1] == oldNum)
+                    if (matrix[I, J - 1] == oldNum) 
                     {
                         SquareToolforStack(needCheckedPixel, matrix, num, I, J - 1);
                         square++;
@@ -256,7 +256,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         private double GreenApproximation = 0.587;
         private double BlueApproximation = 0.114;
         // конвертация изображения
-        public void ConvertImage(Bitmap image, int[][] matrix)
+        public void ConvertImage(Bitmap image, int[,] matrix)
         {
             int r = 0, g = 0, b = 0;
             int y;
@@ -267,24 +267,24 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     GetRGB(image, I, J, r, g, b);
                     y = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
                     if ((r == 0) && (g == 0) && (b == 0))
-                        matrix[I][J] = 1;
+                        matrix[I, J] = 1;
                     else
-                        matrix[I][J] = 0;
+                        matrix[I, J] = 0;
                 }
 
             }
             return;
         }
 
-        public void BackConvertImage(Bitmap image,int [][] matrix)
+        public void BackConvertImage(Bitmap image,int [,] matrix)
         {
             for (int I = 0; I < image.Width; I++)
             {
                 for (int J = 0; J < image.Height; J++)
                 {
-                    if (matrix[I][J] == 1)
+                    if (matrix[I, J] == 1)
                         image.SetPixel(I, J, Color.FromArgb(0, 0, 0));
-                    else if (matrix[I][J] == 0)
+                    else if (matrix[I, J] == 0)
                         image.SetPixel(I, J, Color.FromArgb(0, 0, 0));
                 }
             }
