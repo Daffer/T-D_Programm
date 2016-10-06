@@ -92,7 +92,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
+        //  Затравка
         private void Fuse(int x, int y, Bitmap img, int h, int w)
         {
             int I, J;
@@ -123,7 +123,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     FuseToolforStack(needCheckedPixel, img, I - 1, J - 1);
             }
         }
-
         //  вспомогательная функция обработки краев
         private void BorderProcessingHelper(Bitmap img, int height, int width, int x, int y)
         {
@@ -157,7 +156,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
         //  получение негатива изображения
         private void Negativ(Bitmap img)
         {
@@ -178,7 +176,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
         //  вспомогательная функция корректировки компонента цвета
         private int ExtremateColor(int source, int changeval)
         {
@@ -213,7 +210,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 }
             }
         }
-
         //  вспомогательная функция контрастирования пикселя
         private int ContrastPixel(int val, int n)
         {
@@ -251,7 +247,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
+        //  Константы аппроксимирующие цветовые характеристики
         private double RedApproximation = 0.299;
         private double GreenApproximation = 0.587;
         private double BlueApproximation = 0.114;
@@ -275,7 +271,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
         //  функция обратной конвертации
         public void BackConvertImage(Bitmap image)
         {
@@ -291,8 +286,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
-
         // Функция эрозии изображения
         public void Erosion(Bitmap image)
         {
@@ -334,7 +327,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
         //  Дилатация изображения
         public void Dilatation(Bitmap image)
         {
@@ -376,7 +368,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
         //  Функция проверки дилатации и эрозии изображения
         public void CheckErodeAndDilatation()
         {
@@ -390,7 +381,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
+        //  Метод Оцу
         public void MethodOtsu()
         {
             int[] p = new int[256];// ?
@@ -451,8 +442,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             return;
         }
-
-
 
         private int[,] InfoMatrix;
         private Bitmap PixelMap;
