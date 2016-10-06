@@ -377,6 +377,20 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
 
+        //  Функция проверки дилатации и эрозии изображения
+        public void CheckErodeAndDilatation()
+        {
+            for (int I = 0; I < PixelMap.Height; I++)
+            {
+                for (int J = 0; J < PixelMap.Width; J++) 
+                {
+                    if ((InfoMatrix[I, J] != 0) && (InfoMatrix[I, J] != 1))
+                        InfoMatrix[I, J] = 0;
+                }
+            }
+            return;
+        }
+
         private int[,] InfoMatrix;
         private Bitmap PixelMap;
     }
