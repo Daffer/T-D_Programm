@@ -489,5 +489,12 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 
         private int[,] InfoMatrix;
         private Bitmap PixelMap;
+
+        // что осталось 
+        // void handy_binarization(int t);
+        // void brightness(int n);
+        // void make_border();
+        // int make_calculations();
+        // int make_cart();
     }
 }
