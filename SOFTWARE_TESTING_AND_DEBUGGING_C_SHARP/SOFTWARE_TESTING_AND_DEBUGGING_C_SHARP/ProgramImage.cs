@@ -484,7 +484,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             result = Convert.ToInt32(count_bor + Convert.ToDouble(count * 0.2071));
             return result;
         }
-
         private int[,] InfoMatrix;
         private Bitmap PixelMap;
 
