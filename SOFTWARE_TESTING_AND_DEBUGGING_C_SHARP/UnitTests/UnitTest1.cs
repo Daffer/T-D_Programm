@@ -200,5 +200,70 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             Assert.AreEqual(item.ColourComponent(map, x7, y7), correctanswer);
             Assert.AreEqual(item.ColourComponent(map, x8, y8), correctanswer);
         }
+
+        [Test]
+        public void IsBorder_CorrectBorder()
+        {
+            bool correctanswer = true;
+            int h = 3;
+            int w = 3;
+            int x = 1;
+            int y = 1;
+            ProgramImage item = new ProgramImage();
+            int[,] matrix = new int[w, h];
+            for (int I = 0; I < w; I++)
+                for (int J = 0; J < h; J++)
+                    matrix[1, 1] = 1;
+            Assert.AreEqual(item.IsBorder(matrix, x, y, h, w), correctanswer);
+        }
+
+        [Test]
+        public void IsBorder_InvalidStartPoint()
+        {
+            bool correctanswer = false;
+            int h = 3;
+            int w = 3;
+            int x1 = -1;
+            int y1 = 0;
+            int x2 = -1;
+            int y2 = -1;
+            int x3 = 0;
+            int y3 = -1;
+            int x4 = -1;
+            int y4 = -1;
+            int x5 = w + 1;
+            int y5 = 0;
+            int x6 = w + 1;
+            int y6 = h + 1;
+            int x7 = 0;
+            int y7 = h + 1;
+            int x8 = w + 1;
+            int y8 = h + 1;
+            ProgramImage item = new ProgramImage();
+            int[,] matrix = new int[w, h];
+            for (int I = 0; I < w; I++)
+                for (int J = 0; J < h; J++)
+                    matrix[1, 1] = 1;
+            Assert.AreEqual(item.IsBorder(matrix, x1, y1, h, w), correctanswer);
+            Assert.AreEqual(item.IsBorder(matrix, x2, y2, h, w), correctanswer);
+            Assert.AreEqual(item.IsBorder(matrix, x3, y3, h, w), correctanswer);
+            Assert.AreEqual(item.IsBorder(matrix, x4, y4, h, w), correctanswer);
+            Assert.AreEqual(item.IsBorder(matrix, x5, y5, h, w), correctanswer);
+            Assert.AreEqual(item.IsBorder(matrix, x6, y6, h, w), correctanswer);
+            Assert.AreEqual(item.IsBorder(matrix, x7, y7, h, w), correctanswer);
+            Assert.AreEqual(item.IsBorder(matrix, x8, y8, h, w), correctanswer);
+        }
+
+        [Test]
+        public void IsBorder_NullMatrix()
+        {
+            bool correctanswer = false;
+            int h = 3;
+            int w = 3;
+            int x = 1;
+            int y = 1;
+            ProgramImage item = new ProgramImage();
+            Assert.AreEqual(item.IsBorder(null, x, y, h, w), correctanswer);
+        }
     }
 }

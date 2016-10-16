@@ -456,6 +456,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         //  Вспомогательная функция определяющая границу изображения
         public bool IsBorder(int[,] a, int I, int J, int h, int w)
         {
+            if (I > w || I < 0 || J < 0 || J > h)
+                return false;
+            if (a == null)
+                return false;
             if ((I > 0) && (a[I - 1, J] == 0))
                 return true;
             if ((I < h - 1) && (a[I + 1, J] == 0))
