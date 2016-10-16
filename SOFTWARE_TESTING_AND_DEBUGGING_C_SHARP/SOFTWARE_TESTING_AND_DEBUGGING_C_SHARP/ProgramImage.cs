@@ -26,6 +26,8 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 return -1;              // Ошибка входных данных
             if (h * w > matrix.Length)
                 return -2;              // Ошибка длины или высоты
+            if (x > w || x < 0 || y > h || y < 0)
+                return 0;
             int square = 0;
             int oldNum = matrix[x, y];
             Stack<Point> needCheckedPixel = new Stack<Point>();
