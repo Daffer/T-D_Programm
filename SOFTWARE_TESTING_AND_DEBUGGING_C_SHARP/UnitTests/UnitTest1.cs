@@ -1,5 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using NUnit.Framework;
+using System.Drawing;
+using System.IO;
 using SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP;
 
 namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
@@ -152,5 +156,49 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             Assert.AreEqual(item.SquareCalculate(x8, y8, num, matrix, h, w), correctanswer);
         }
 
+        [Test]
+        public void ColourComponent_CorrectWork()
+        {
+            int correctanswer = 255;
+            ProgramImage item = new ProgramImage();
+            Bitmap map = new Bitmap(1,1);
+            map.SetPixel(0, 0, Color.FromArgb(255, 255, 255));
+            int x = 0;
+            int y = 0;
+            Assert.AreEqual(item.ColourComponent(map, x, y), correctanswer);
+        }
+
+        [Test]
+        public void ColourComponent_InvalidPoint()
+        {
+            int correctanswer = -1;
+            ProgramImage item = new ProgramImage();
+            Bitmap map = new Bitmap(1, 1);
+            map.SetPixel(0, 0, Color.FromArgb(255, 255, 255));
+            int x1 = -1;
+            int y1 = 0;
+            int x2 = -1;
+            int y2 = -1;
+            int x3 = 0;
+            int y3 = -1;
+            int x4 = -1;
+            int y4 = -1;
+            int x5 = 1;
+            int y5 = 0;
+            int x6 = 1;
+            int y6 = 1;
+            int x7 = 0;
+            int y7 = 1;
+            int x8 = 1;
+            int y8 = 1;
+            Assert.AreEqual(item.ColourComponent(map, x1, y1), correctanswer);
+            Assert.AreEqual(item.ColourComponent(map, x2, y2), correctanswer);
+            Assert.AreEqual(item.ColourComponent(map, x3, y3), correctanswer);
+            Assert.AreEqual(item.ColourComponent(map, x4, y4), correctanswer);
+            Assert.AreEqual(item.ColourComponent(map, x5, y5), correctanswer);
+            Assert.AreEqual(item.ColourComponent(map, x6, y6), correctanswer);
+            Assert.AreEqual(item.ColourComponent(map, x7, y7), correctanswer);
+            Assert.AreEqual(item.ColourComponent(map, x8, y8), correctanswer);
+        }
     }
 }

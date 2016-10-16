@@ -77,7 +77,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return square;
         }
         //  вспомогательная функция, получающая RGB
-        public void GetRGB(Bitmap img, int x, int y, int r, int g, int b)
+        public void GetRGB(Bitmap img, int x, int y, ref int r, ref int g, ref int b)
         {
             r = img.GetPixel(x, y).R;
             g = img.GetPixel(x, y).G;
@@ -87,8 +87,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         //  вспомогательная функция, получающая компоненту цвета
         public double ColourComponent(Bitmap img, int x, int y)
         {
+            if (x < 0 || y < 0 || x >= img.Width || y >= img.Height)
+                return -1;
             int r = 0, g = 0, b = 0;
-            GetRGB(img, x, y, r, g, b);
+            GetRGB(img, x, y, ref r, ref g, ref b);
             double average = (r + g + b) / 3;
             return average;
         }
@@ -176,7 +178,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 for (j = 0; j < img.Height; j++)
                 {
                     int r = 0, g = 0, b = 0;
-                    GetRGB(img, i, j, r, g, b);
+                    GetRGB(img, i, j, ref r, ref g, ref b);
                     r = 255 - r;
                     g = 255 - g;
                     b = 255 - b;
@@ -247,7 +249,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 for (j = 0; j < img.Height; j++)
                 {
                     int r = 0, g = 0, b = 0;
-                    GetRGB(img, i, j, r, g, b);
+                    GetRGB(img, i, j, ref r, ref g, ref b);
                     r = ContrastPixel(r, n);
                     g = ContrastPixel(r, n);
                     b = ContrastPixel(r, n);
@@ -269,7 +271,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             {
                 for (int J = 0; J < image.Height; J++)
                 {
-                    GetRGB(image, I, J, r, g, b);
+                    GetRGB(image, I, J, ref r, ref g, ref b);
                     y = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
                     if ((r == 0) && (g == 0) && (b == 0))
                         InfoMatrix[I, J] = 1;
@@ -403,7 +405,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             {
                 for(int J = 0; J<PixelMap.Height; J++)
                 {
-                    GetRGB(PixelMap, I, J, r, g, b);
+                    GetRGB(PixelMap, I, J, ref r, ref g, ref b);
                     res = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
                     p[res]++;
                 }
@@ -441,7 +443,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             {
                 for (int J = 0; J < PixelMap.Height; J++) 
                 {
-                    GetRGB(PixelMap, I, J, r, g, b);
+                    GetRGB(PixelMap, I, J, ref r, ref g, ref b);
                     res = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
                     if (res > t)
                         PixelMap.SetPixel(I, J, Color.FromArgb(0, 0, 0));
