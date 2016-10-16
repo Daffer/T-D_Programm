@@ -10,8 +10,13 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
     public class ProgramImage
     {
+        public ProgramImage()
+        {
+            InfoMatrixList = new List<int[,]>();
+            PixelMapList = new List<Bitmap>();
+        }
         //  Вспомогательная функция для подсчета площади зоны (заносит новые пиксели для подсчета)
-        private void SquareToolforStack(Stack<Point> needCheckedPixel, int [,] matrix, int newNum, int x, int y)
+        public void SquareToolforStack(Stack<Point> needCheckedPixel, int [,] matrix, int newNum, int x, int y)
         {
             Point item = new Point(x, y);
             needCheckedPixel.Push(item);
@@ -72,7 +77,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return square;
         }
         //  вспомогательная функция, получающая RGB
-        private void GetRGB(Bitmap img, int x, int y, int r, int g, int b)
+        public void GetRGB(Bitmap img, int x, int y, int r, int g, int b)
         {
             r = img.GetPixel(x, y).R;
             g = img.GetPixel(x, y).G;
@@ -80,7 +85,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  вспомогательная функция, получающая компоненту цвета
-        private double ColourComponent(Bitmap img, int x, int y)
+        public double ColourComponent(Bitmap img, int x, int y)
         {
             int r = 0, g = 0, b = 0;
             GetRGB(img, x, y, r, g, b);
@@ -88,7 +93,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return average;
         }
         //  вспомогательная функция осуществляющая анализ пикселя на засвеченность
-        private void FuseToolforStack(Stack<Point> needCheckedPixel, Bitmap img, int x, int y)
+        public void FuseToolforStack(Stack<Point> needCheckedPixel, Bitmap img, int x, int y)
         {
             double colour = ColourComponent(img, x, y);
             if (colour != 255)
@@ -99,7 +104,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  Затравка
-        private void Fuse(int x, int y, Bitmap img, int h, int w)
+        public void Fuse(int x, int y, Bitmap img, int h, int w)
         {
             int I, J;
             Point item = new Point(x, y);
@@ -130,7 +135,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
         }
         //  вспомогательная функция обработки краев
-        private void BorderProcessingHelper(Bitmap img, int height, int width, int x, int y)
+        public void BorderProcessingHelper(Bitmap img, int height, int width, int x, int y)
         {
             double colour = ColourComponent(img, x, y);
             if (colour != 255)
@@ -140,7 +145,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  обработка краев изображения
-        private void BorderProcessing(Bitmap img)
+        public void BorderProcessing(Bitmap img)
         {
             int i, j;
             int h = img.Height;
@@ -163,7 +168,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  получение негатива изображения
-        private void Negativ(Bitmap img)
+        public void Negativ(Bitmap img)
         {
             int i, j;
             for (i = 0; i < img.Width; i++)
@@ -181,7 +186,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  вспомогательная функция корректировки компонента цвета
-        private int ExtremateColor(int source, int changeval)
+        public int ExtremateColor(int source, int changeval)
         {
             if (changeval > 0)
             {
@@ -215,7 +220,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
         }
         //  вспомогательная функция контрастирования пикселя
-        private int ContrastPixel(int val, int n)
+        public int ContrastPixel(int val, int n)
         {
             double pixel;
             double contrast = (100.0 + n) / 100.0;
@@ -233,7 +238,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 
         }
         //  функция контрастирования изображения
-        private void Contrast(Bitmap img, int n)
+        public void Contrast(Bitmap img, int n)
         {
             int i, j;
 
@@ -256,7 +261,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         private double GreenApproximation = 0.587;
         private double BlueApproximation = 0.114;
         // конвертация изображения
-        public void ConvertImage(Bitmap image)
+        public void ConvertImage(Bitmap image, int[,] InfoMatrix)
         {
             int r = 0, g = 0, b = 0;
             int y;
@@ -276,7 +281,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  функция обратной конвертации
-        public void BackConvertImage(Bitmap image)
+        public void BackConvertImage(Bitmap image, int[,] InfoMatrix)
         {
             for (int I = 0; I < image.Width; I++)
             {
@@ -291,7 +296,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         // Функция эрозии изображения
-        public void Erosion(Bitmap image)
+        public void Erosion(Bitmap image, int[,] InfoMatrix)
         {
             int[,] matrix = new int[image.Width, image.Height];
             int count;
@@ -332,7 +337,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  Дилатация изображения
-        public void Dilatation(Bitmap image)
+        public void Dilatation(Bitmap PixelMap, int[,] InfoMatrix)
         {
             int h = PixelMap.Height;
             int w = PixelMap.Width;
@@ -373,7 +378,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  Функция проверки дилатации и эрозии изображения
-        public void CheckErodeAndDilatation()
+        public void CheckErodeAndDilatation(Bitmap PixelMap, int[,] InfoMatrix)
         {
             for (int I = 0; I < PixelMap.Height; I++)
             {
@@ -386,7 +391,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  Метод Оцу
-        public void MethodOtsu()
+        public void MethodOtsu(Bitmap PixelMap, int[,] InfoMatrix)
         {
             int[] p = new int[256];// ?
             double[] pp = new double[256];//?
@@ -447,7 +452,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  Вспомогательная функция определяющая границу изображения
-        private bool IsBorder(int[,] a, int I, int J, int h, int w)
+        public bool IsBorder(int[,] a, int I, int J, int h, int w)
         {
             if ((I > 0) && (a[I - 1, J] == 0))
                 return true;
@@ -460,7 +465,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return false;
         }
         //  Подсчет периметра
-        private int Perimetr(int [,] a, int num, int h,int w)
+        public int Perimetr(int [,] a, int num, int h,int w)
         {
             int result = 0;
             int count = 0;
@@ -490,8 +495,37 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             result = Convert.ToInt32(count_bor + Convert.ToDouble(count * 0.2071));
             return result;
         }
-        private int[,] InfoMatrix;
-        private Bitmap PixelMap;
+        public int InitMatrix(int[,] Matrix, int Width, int Height)
+        {
+            int i, j;
+            if (Matrix == null)
+            {
+                return -1;
+            }
+            if (Width * Height >= (1920 * 1080))
+                return -2;
+            for (i = 0; i < Width; i++)
+            {
+                for (j = 0; j < Height; j++)
+                {
+                    Matrix[i, j] = 0;
+                }
+            }
+            return 0;
+        }
+        public int MakeMap(Bitmap PixelMap, int[,] InfoMatrix)
+        {
+            int i, j;
+            int Height = PixelMap.Height;
+            int Width = PixelMap.Width;
+            InfoMatrix = new int[Width, Height];
+
+            InitMatrix(InfoMatrix, Width, Height);
+            return 0;
+
+        }
+        private List<int[,]> InfoMatrixList;
+        private List<Bitmap> PixelMapList;
 
         // что осталось 
         // void handy_binarization(int t);
