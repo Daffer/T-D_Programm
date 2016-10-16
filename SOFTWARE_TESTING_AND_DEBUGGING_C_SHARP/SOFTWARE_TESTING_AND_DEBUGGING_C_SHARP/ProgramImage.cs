@@ -240,9 +240,13 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 
         }
         //  функция контрастирования изображения
-        public void Contrast(Bitmap img, int n)
+        public int Contrast(Bitmap img, int n)
         {
             int i, j;
+            if (img == null)
+            {
+                return -1;
+            }
 
             for (i = 0; i < img.Width; i++)
             {
@@ -256,7 +260,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     img.SetPixel(i, j, Color.FromArgb(r, g, b));
                 }
             }
-            return;
+            return 0;
         }
         //  Константы аппроксимирующие цветовые характеристики
         private double RedApproximation = 0.299;
@@ -477,6 +481,12 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             int count = 0;
             int count_bor = 0;
             bool is_border;
+            if (a == null)
+                return -1;
+            if (h * w >= 1920 * 1080)
+                return -1;
+            if (num < 0)
+                return -1;
             for (int I = 0; I < h; I++) 
             {
                 for (int J = 0; J < w; J++)
@@ -529,6 +539,23 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             InitMatrix(InfoMatrix, Width, Height);
             return 0;
 
+        }
+
+        public List<int[,]> GetMatrixList()
+        {
+            return this.InfoMatrixList;
+        }
+        public List<Bitmap> GetBitmapList()
+        {
+            return this.PixelMapList;
+        }
+        public void SetMatrixList(List<int[,]> a)
+        {
+            this.InfoMatrixList = a;
+        }
+        public void SetBitmapList(List<Bitmap> a)
+        {
+            this.PixelMapList = a;
         }
         private List<int[,]> InfoMatrixList;
         private List<Bitmap> PixelMapList;

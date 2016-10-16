@@ -10,3 +10,16 @@ C:\Users\Pavel\Documents\Git\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bi
 C:\Users\Pavel\Documents\Git\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 C:\Users\Pavel\Documents\Git\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.dll
 C:\Users\Pavel\Documents\Git\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.pdb
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\UnitTests.dll
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\UnitTests.pdb
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\NSubstitute.dll
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\nunit.framework.dll
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.exe
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.pdb
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\NSubstitute.xml
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\nunit.framework.xml
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.dll
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.pdb

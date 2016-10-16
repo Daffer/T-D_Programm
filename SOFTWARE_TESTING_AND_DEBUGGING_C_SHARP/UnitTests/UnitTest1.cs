@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System.Drawing;
 using System.IO;
 using SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP;
+using System.Drawing;
 
 namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
 {
@@ -264,6 +265,143 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             int y = 1;
             ProgramImage item = new ProgramImage();
             Assert.AreEqual(item.IsBorder(null, x, y, h, w), correctanswer);
+        }
+        [Test]
+        public void InitMatrixNoMatrix()
+        {
+            int w = 800;
+            int h = 600;
+            ProgramImage item = new ProgramImage();
+            int err = 0;
+            int[,] matr = new int[w, h];
+            err = item.InitMatrix(null, w, h);
+            Assert.AreEqual(err, -1);
+        }
+        [Test]
+        public void InitMatrixCorrect()
+        {
+            int w = 800;
+            int h = 600;
+            ProgramImage item = new ProgramImage();
+            int err = 0;
+            int[,] matr = new int[w, h];
+            err = item.InitMatrix(matr, w, h);
+            Assert.AreEqual(err, 0);
+        }
+        [Test]
+        public void InitMatrixGreatSize()
+        {
+            int w = 2000;
+            int h = 2000;
+            ProgramImage item = new ProgramImage();
+            int err = 0;
+            int[,] matr = new int[w, h];
+            err = item.InitMatrix(matr, w, h);
+            Assert.AreEqual(err, -2);
+        }
+        [Test]
+        public void ContrastPixelNoChange()
+        {
+            ProgramImage item = new ProgramImage();
+            int r = 127;
+            int res = 0;
+            int n = 0;
+            res = item.ContrastPixel(r, n);
+            Assert.AreEqual(r, res);
+        }
+        [Test]
+        public void ContrastPixelOver255()
+        {
+            // changes for over 255
+            ProgramImage item = new ProgramImage();
+            int r = 255;
+            int res = 0;
+            int n = 255;
+            res = item.ContrastPixel(r, n);
+            Assert.AreEqual(r, res);
+        }
+        [Test]
+        public void ContrastPixelBelowZero()
+        {
+            // changes for over 255
+            ProgramImage item = new ProgramImage();
+            int r = 0;
+            int res = 255;
+            int n = -255;
+            res = item.ContrastPixel(r, n);
+            Assert.AreEqual(r, res);
+        }
+        [Test]
+        public void ContrastPixelCorrect()
+        {
+            // changes for over 255
+            ProgramImage item = new ProgramImage();
+            int r = 0;
+            int res = 2;
+            int n = -1;
+            r = item.ContrastPixel(r, n);
+            Assert.AreEqual(r, res);
+        }
+
+        [Test]
+        public void ContrastNoImage()
+        {
+            ProgramImage item = new ProgramImage();
+            int err = 0;
+            Bitmap map = new Bitmap(1, 1);
+            map.SetPixel(0, 0, Color.FromArgb(0, 0, 0));
+            err = item.Contrast(null, 10);
+            Assert.AreEqual(err, -1);
+        }
+        [Test]
+        public void ContrastCorrect()
+        {
+            // changes for over 255
+            ProgramImage item = new ProgramImage();
+            int err = 0;
+            Bitmap map = new Bitmap(1, 1);
+            map.SetPixel(0, 0, Color.FromArgb(0, 0, 0));
+            err = item.Contrast(map, 10);
+            Assert.AreEqual(err, 0);
+        }
+        [Test]
+        public void PerimetrNoMatrix()
+        {
+            ProgramImage item = new ProgramImage();
+            int count = 0;
+            count = item.Perimetr(null, 2, 800, 600);
+            Assert.AreEqual(count, -1);
+        }
+        [Test]
+        public void PerimetrCorrect()
+        {
+            ProgramImage item = new ProgramImage();
+            int count = 0;
+            int[,] matr = new int[5, 5];
+            matr[0, 0] = 2;
+ 
+            count = item.Perimetr(matr, 2, 1, 1);
+            Assert.AreEqual(count, 0);
+        }
+        [Test]
+        public void PerimetrGreatSize()
+        {
+            ProgramImage item = new ProgramImage();
+            int count = 0;
+            int[,] matr = new int[1, 1];
+            matr[0, 0] = 2;
+            count = item.Perimetr(matr, 2, 2000, 2000);
+            Assert.AreEqual(count, -1);
+        }
+        [Test]
+        public void PerimetrNegativeNum()
+        {
+            ProgramImage item = new ProgramImage();
+            int count = 0;
+            int[,] matr = new int[1, 1];
+            matr[0, 0] = 2;
+            count = item.Perimetr(matr, -1, 2000, 2000);
+            Assert.AreEqual(count, -1);
         }
     }
 }
