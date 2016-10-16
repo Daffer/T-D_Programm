@@ -22,6 +22,8 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         //  Подсчет площади выделенной зоны
         public int SquareCalculate(int x, int y, int num, int[,] matrix, int h, int w)
         {
+            if (h < 0 || w < 0)
+                return -1;              // Ошибка входных данных
             int square = 0;
             int oldNum = matrix[x, y];
             Stack<Point> needCheckedPixel = new Stack<Point>();
