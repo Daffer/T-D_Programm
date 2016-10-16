@@ -1,15 +1,15 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.ComponentModel;
 using NUnit.Framework;
 
 namespace NUnit_SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
     [TestFixture]
-    public class ProgramImage_Test
+    public class ProgramImageTests
     {
         [Test]
-        public void TestMethod1()
+        public void SqaureCalculateTests()
         {
+            
         }
     }
 }

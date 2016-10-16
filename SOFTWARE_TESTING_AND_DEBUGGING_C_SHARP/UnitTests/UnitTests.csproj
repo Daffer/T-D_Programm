@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{35810B79-0903-4612-ACD0-B1749E3DBC42}</ProjectGuid>
+    <ProjectGuid>{44962150-E789-45ED-BB8A-1F66C6540809}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NUnit_SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP</RootNamespace>
-    <AssemblyName>NUnit_SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP</AssemblyName>
+    <RootNamespace>UnitTests</RootNamespace>
+    <AssemblyName>UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -36,11 +36,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NSubstitute, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
-      <HintPath>..\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\packages\NSubstitute.1.10.0.0\lib\net45\NSubstitute.dll</HintPath>
+      <HintPath>..\packages\NSubstitute.1.10.0.0\lib\net45\NSubstitute.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -65,7 +65,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.csproj">
+    <ProjectReference Include="..\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.csproj">
       <Project>{5ebf3fdd-5cda-40cd-8076-1ed056584fc0}</Project>
       <Name>SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP</Name>
     </ProjectReference>

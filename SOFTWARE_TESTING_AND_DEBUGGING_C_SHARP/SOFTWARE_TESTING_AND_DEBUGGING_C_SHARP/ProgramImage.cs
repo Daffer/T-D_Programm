@@ -8,7 +8,7 @@ using System.IO;
 
 namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
-    class ProgramImage
+    public class ProgramImage
     {
         //  Вспомогательная функция для подсчета площади зоны (заносит новые пиксели для подсчета)
         private void SquareToolforStack(Stack<Point> needCheckedPixel, int [,] matrix, int newNum, int x, int y)
@@ -20,7 +20,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         }
 
         //  Подсчет площади выделенной зоны
-        int SquareCalculate(int x, int y, int num, int[,] matrix, int h, int w)
+        public int SquareCalculate(int x, int y, int num, int[,] matrix, int h, int w)
         {
             int square = 0;
             int oldNum = matrix[x, y];
@@ -166,11 +166,9 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 {
                     int r = 0, g = 0, b = 0;
                     GetRGB(img, i, j, r, g, b);
-
                     r = 255 - r;
                     g = 255 - g;
                     b = 255 - b;
-                    
                     img.SetPixel(i, j, Color.FromArgb(r, g, b));
                 }
             }
