@@ -51,7 +51,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
         [Test]
         public void SquareCalculate_InvalidWidthToCalculate_Above()
         {
-            int correctanswer = -1;
+            int correctanswer = -2;
             int x = 2;
             int y = 5;
             int h = 10;

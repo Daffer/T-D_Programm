@@ -11,21 +11,23 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
     public class ProgramImage
     {
         //  Вспомогательная функция для подсчета площади зоны (заносит новые пиксели для подсчета)
-        private void SquareToolforStack(Stack<Point> needCheckedPixel, int [][] matrix, int newNum, int x, int y)
+        private void SquareToolforStack(Stack<Point> needCheckedPixel, int [,] matrix, int newNum, int x, int y)
         {
             Point item = new Point(x, y);
             needCheckedPixel.Push(item);
-            matrix[x][y] = newNum;
+            matrix[x, y] = newNum;
             return;
         }
 
         //  Подсчет площади выделенной зоны
-        public int SquareCalculate(int x, int y, int num, int[][] matrix, int h, int w)
+        public int SquareCalculate(int x, int y, int num, int[,] matrix, int h, int w)
         {
             if (h < 0 || w < 0)
                 return -1;              // Ошибка входных данных
+            if (h * w > matrix.Length)
+                return -2;              // Ошибка длины или высоты
             int square = 0;
-            int oldNum = matrix[x][y];
+            int oldNum = matrix[x, y];
             Stack<Point> needCheckedPixel = new Stack<Point>();
             Point item = new Point(x, y);
             int I, J;
@@ -35,31 +37,31 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                 item = needCheckedPixel.Pop();
                 I = item.X;
                 J = item.Y;
-                if (matrix[I][J] != num)
+                if (matrix[I, J] != num)
                 {
-                    matrix[I][J] = num;
+                    matrix[I, J] = num;
                     square++;
                 }
                 if (I < h - 1)
-                    if (matrix[I + 1][J] == oldNum)
+                    if (matrix[I + 1, J] == oldNum)
                     {
                         SquareToolforStack(needCheckedPixel, matrix, num, I + 1, J);
                         square++;
                     }
                 if (I > 0)
-                    if ( matrix[I -1][J] == oldNum)
+                    if ( matrix[I -1, J] == oldNum)
                     {
                         SquareToolforStack(needCheckedPixel, matrix, num, I - 1, J);
                         square++;
                     }
                 if (J < w - 1)
-                    if (matrix[I][J + 1] == oldNum) 
+                    if (matrix[I, J + 1] == oldNum) 
                     {
                         SquareToolforStack(needCheckedPixel, matrix, num, I, J + 1);
                         square++;
                     }
                 if (J > 0)
-                    if (matrix[I][J - 1] == oldNum) 
+                    if (matrix[I, J - 1] == oldNum) 
                     {
                         SquareToolforStack(needCheckedPixel, matrix, num, I, J - 1);
                         square++;
