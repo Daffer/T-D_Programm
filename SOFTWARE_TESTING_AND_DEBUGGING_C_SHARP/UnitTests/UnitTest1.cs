@@ -123,6 +123,14 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             int y3 = -1;
             int x4 = -1;
             int y4 = -1;
+            int x5 = 11;
+            int y5 = 0;
+            int x6 = 11;
+            int y6 = 11;
+            int x7 = 0;
+            int y7 = 11;
+            int x8 = 11;
+            int y8 = 11;
             int h = 10;
             int w = 10;
             int num = 1;
@@ -138,6 +146,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             Assert.AreEqual(item.SquareCalculate(x2, y2, num, matrix, h, w), correctanswer);
             Assert.AreEqual(item.SquareCalculate(x3, y3, num, matrix, h, w), correctanswer);
             Assert.AreEqual(item.SquareCalculate(x4, y4, num, matrix, h, w), correctanswer);
+            Assert.AreEqual(item.SquareCalculate(x5, y5, num, matrix, h, w), correctanswer);
+            Assert.AreEqual(item.SquareCalculate(x6, y6, num, matrix, h, w), correctanswer);
+            Assert.AreEqual(item.SquareCalculate(x7, y7, num, matrix, h, w), correctanswer);
+            Assert.AreEqual(item.SquareCalculate(x8, y8, num, matrix, h, w), correctanswer);
         }
 
     }

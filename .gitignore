@@ -2,3 +2,7 @@ Test/Test_Application/Test_Application/obj/Debug/Test_Application.pdb
 Test/Test_Application/Test_Application/obj/Debug/Test_Application.csprojResolveAssemblyReference.cache
 *.pdb
 SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP/SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP/bin/Debug/SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.pdb
+*.pdb
+*.pdb
+*.exe
+*.pdb
