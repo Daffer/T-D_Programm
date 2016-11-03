@@ -45,18 +45,72 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculater.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormAutoMeasureTable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormAutoMeasureTable.Designer.cs">
+      <DependentUpon>FormAutoMeasureTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBinarization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBinarization.Designer.cs">
+      <DependentUpon>FormBinarization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBrightness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBrightness.Designer.cs">
+      <DependentUpon>FormBrightness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImage.Designer.cs">
+      <DependentUpon>FormImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormParticleInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParticleInfo.Designer.cs">
+      <DependentUpon>FormParticleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTariration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTariration.Designer.cs">
+      <DependentUpon>FormTariration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Particle.cs" />
     <Compile Include="ProgramImage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormAutoMeasureTable.resx">
+      <DependentUpon>FormAutoMeasureTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBinarization.resx">
+      <DependentUpon>FormBinarization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBrightness.resx">
+      <DependentUpon>FormBrightness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImage.resx">
+      <DependentUpon>FormImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormParticleInfo.resx">
+      <DependentUpon>FormParticleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTariration.resx">
+      <DependentUpon>FormTariration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

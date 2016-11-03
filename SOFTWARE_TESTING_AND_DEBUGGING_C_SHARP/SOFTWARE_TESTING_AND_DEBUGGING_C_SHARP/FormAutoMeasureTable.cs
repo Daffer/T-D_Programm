@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
-    public partial class Form1 : Form
+    public partial class FormAutoMeasureTable : Form
     {
-        public Form1()
+        public FormAutoMeasureTable()
         {
             InitializeComponent();
         }

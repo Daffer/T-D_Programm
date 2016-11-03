@@ -17,7 +17,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
