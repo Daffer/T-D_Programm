@@ -579,6 +579,11 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         {
             return PixelMapList[index];
         }
+        public void AddNewImage(Bitmap newmap)
+        {
+            PixelMapList.Add(newmap);
+            return;
+        }
         // что осталось 
         // void handy_binarization(int t);
         // void brightness(int n);

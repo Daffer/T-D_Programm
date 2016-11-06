@@ -31,5 +31,20 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             set { IndexActiviteFormImage = value; }
         }
         private int IndexActiviteFormImage = 0;
+
+        private void NewImageForVideoCameraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            return;
+        }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog system = new OpenFileDialog();
+            system.ShowDialog();
+            string result = system.FileName;
+            Bitmap newimage = new Bitmap(result);
+            Images.AddNewImage(newimage);
+            return;
+        }
     }
 }

@@ -12,12 +12,17 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
     public partial class FormBinarization : Form
     {
-        public FormBinarization(MainForm referencetomain,)
+        public FormBinarization(MainForm referencetomain)
         {
             InitializeComponent();
         }
 
         private void UpperBorderTrackBar_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void AutoBinarizationButton_Click(object sender, EventArgs e)
         {
 
         }
