@@ -37,7 +37,7 @@
             // PictureBox
             // 
             this.PictureBox.Location = new System.Drawing.Point(11, 11);
-            this.PictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.PictureBox.Name = "PictureBox";
             this.PictureBox.Size = new System.Drawing.Size(429, 342);
             this.PictureBox.TabIndex = 0;
@@ -61,9 +61,10 @@
             this.ClientSize = new System.Drawing.Size(451, 507);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.PictureBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormImage";
             this.Text = "FormImage";
+            this.Click += new System.EventHandler(this.FormImage_Click);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

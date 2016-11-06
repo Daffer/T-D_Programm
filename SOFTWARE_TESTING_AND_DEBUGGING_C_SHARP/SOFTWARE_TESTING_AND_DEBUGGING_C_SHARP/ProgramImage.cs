@@ -567,7 +567,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         {
             return GetBitmap(PixelMapList.Count);
         }
-
+        public int GetCountImages()
+        {
+            return PixelMapList.Count;
+        }
         private Bitmap GetBitmap(int index)
         {
             return PixelMapList[index];

@@ -19,12 +19,17 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 
         private void BrightnessNContrastToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormBrightness setting = new FormBrightness(Images);
+            FormBrightness setting = new FormBrightness(Images,this);
             setting.Show();
             setting.Focus();
             return;
         }
-
         private ProgramImage Images = new ProgramImage();
+        public int IndexActiviteForm
+        {
+            get { return IndexActiviteFormImage; }
+            set { IndexActiviteFormImage = value; }
+        }
+        private int IndexActiviteFormImage = 0;
     }
 }
