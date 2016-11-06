@@ -50,6 +50,7 @@
             this.CancelButton.TabIndex = 12;
             this.CancelButton.Text = "Отменить";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // SubmitButton
             // 

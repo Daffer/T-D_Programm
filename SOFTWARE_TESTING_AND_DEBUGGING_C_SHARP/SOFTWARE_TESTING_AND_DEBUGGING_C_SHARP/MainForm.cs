@@ -46,5 +46,12 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             Images.AddNewImage(newimage);
             return;
         }
+
+        private void BinarizationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormBinarization setting = new FormBinarization(this, this.Images);
+            setting.Show();
+            setting.Focus();
+        }
     }
 }

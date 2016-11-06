@@ -145,6 +145,7 @@
             this.BinarizationToolStripMenuItem.Name = "BinarizationToolStripMenuItem";
             this.BinarizationToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.BinarizationToolStripMenuItem.Text = "Бинаризация";
+            this.BinarizationToolStripMenuItem.Click += new System.EventHandler(this.BinarizationToolStripMenuItem_Click);
             // 
             // NegativeToolStripMenuItem
             // 

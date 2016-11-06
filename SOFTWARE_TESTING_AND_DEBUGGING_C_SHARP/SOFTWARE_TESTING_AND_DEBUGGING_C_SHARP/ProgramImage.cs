@@ -242,7 +242,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         public int Contrast(int indexmap, int n)
         {
             int i, j;
-            if (indexmap < 0 || indexmap > PixelMapList.Count)
+            if (indexmap < 0 || indexmap > PixelMapList.Count || PixelMapList.Count == 0)
             {
                 return -1;
             }
@@ -401,19 +401,28 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  Метод Оцу
-        public void MethodOtsu(Bitmap PixelMap, int[,] InfoMatrix)
+        public int MethodOtsu(int index)
         {
+            if (index < 0 || index > PixelMapList.Count || PixelMapList.Count == 0)
+            {
+                return -1;
+            }
+            int width = PixelMapList[index].Width;
+            int height = PixelMapList[index].Height;
+            Bitmap newmap = new Bitmap(width, height);
+            Rectangle rec = new Rectangle(0, 0, width, height);
+            newmap.Clone(rec, PixelMapList[index].PixelFormat);
             int[] p = new int[256];// ?
             double[] pp = new double[256];//?
             int total = 0;
             int r = 0, g = 0, b = 0, res = 0;
             for (int I = 0; I < p.Length; I++) 
                 p[I] = 0;
-            for (int I = 0; I< PixelMap.Width; I++)
+            for (int I = 0; I< newmap.Width; I++)
             {
-                for(int J = 0; J<PixelMap.Height; J++)
+                for(int J = 0; J<newmap.Height; J++)
                 {
-                    GetRGB(PixelMap, I, J, ref r, ref g, ref b);
+                    GetRGB(newmap, I, J, ref r, ref g, ref b);
                     res = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
                     p[res]++;
                 }
@@ -447,19 +456,20 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     t = I;
                 }
             }
-            for (int I = 0; I < PixelMap.Width; I++) 
+            for (int I = 0; I < newmap.Width; I++) 
             {
-                for (int J = 0; J < PixelMap.Height; J++) 
+                for (int J = 0; J < newmap.Height; J++) 
                 {
-                    GetRGB(PixelMap, I, J, ref r, ref g, ref b);
+                    GetRGB(newmap, I, J, ref r, ref g, ref b);
                     res = Convert.ToInt32(RedApproximation * r + GreenApproximation * g + BlueApproximation * b);
                     if (res > t)
-                        PixelMap.SetPixel(I, J, Color.FromArgb(0, 0, 0));
+                        newmap.SetPixel(I, J, Color.FromArgb(0, 0, 0));
                     else
-                        PixelMap.SetPixel(I, J, Color.FromArgb(255, 255, 255));
+                        newmap.SetPixel(I, J, Color.FromArgb(255, 255, 255));
                 }
             }
-            return;
+            PixelMapList.Add(newmap);
+            return 0;
         }
         //  Вспомогательная функция определяющая границу изображения
         public bool IsBorder(int[,] a, int I, int J, int h, int w)
