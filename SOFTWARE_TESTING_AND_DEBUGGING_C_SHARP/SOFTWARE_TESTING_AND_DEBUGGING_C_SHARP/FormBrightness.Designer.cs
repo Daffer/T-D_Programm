@@ -44,7 +44,7 @@
             // CancelButton
             // 
             this.CancelButton.Location = new System.Drawing.Point(157, 152);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(76, 23);
             this.CancelButton.TabIndex = 12;
@@ -54,7 +54,7 @@
             // SubmitButton
             // 
             this.SubmitButton.Location = new System.Drawing.Point(85, 152);
-            this.SubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(68, 23);
             this.SubmitButton.TabIndex = 11;
@@ -84,24 +84,24 @@
             // BrightnessTrackBar
             // 
             this.BrightnessTrackBar.Location = new System.Drawing.Point(11, 18);
-            this.BrightnessTrackBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BrightnessTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.BrightnessTrackBar.Maximum = 255;
             this.BrightnessTrackBar.Name = "BrightnessTrackBar";
             this.BrightnessTrackBar.Size = new System.Drawing.Size(286, 45);
             this.BrightnessTrackBar.TabIndex = 8;
             this.BrightnessTrackBar.Value = 128;
-            this.BrightnessTrackBar.Scroll += new System.EventHandler(this.BrightnessTrackBar_Scroll);
+            this.BrightnessTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BrightnessTrackBar_MouseUp);
             // 
             // ContrastTrackBar
             // 
             this.ContrastTrackBar.Location = new System.Drawing.Point(11, 86);
-            this.ContrastTrackBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ContrastTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.ContrastTrackBar.Maximum = 255;
             this.ContrastTrackBar.Name = "ContrastTrackBar";
             this.ContrastTrackBar.Size = new System.Drawing.Size(286, 45);
             this.ContrastTrackBar.TabIndex = 7;
             this.ContrastTrackBar.Value = 127;
-            this.ContrastTrackBar.Scroll += new System.EventHandler(this.ContrastTrackBar_Scroll);
+            this.ContrastTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContrastTrackBar_MouseUp);
             // 
             // label3
             // 
@@ -129,7 +129,7 @@
             this.InfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.InfoLabel.MaximumSize = new System.Drawing.Size(375, 0);
             this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(286, 26);
+            this.InfoLabel.Size = new System.Drawing.Size(286, 0);
             this.InfoLabel.TabIndex = 15;
             this.InfoLabel.Text = "Разница между текущим положением ползунка и получившимся дает величину изменения " +
     "яркости/контрастности";
@@ -148,7 +148,7 @@
             this.Controls.Add(this.MinValueLabel);
             this.Controls.Add(this.BrightnessTrackBar);
             this.Controls.Add(this.ContrastTrackBar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormBrightness";
             this.Text = "FormBrightness";
             ((System.ComponentModel.ISupportInitialize)(this.BrightnessTrackBar)).EndInit();

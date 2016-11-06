@@ -544,6 +544,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return 0;
 
         }
+        public int Brightness(int index, int n)
+        {
+            return -1;
+        }
 
         public List<int[,]> GetMatrixList()
         {
