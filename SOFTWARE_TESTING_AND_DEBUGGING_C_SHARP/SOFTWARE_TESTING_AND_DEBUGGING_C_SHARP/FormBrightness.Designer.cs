@@ -60,6 +60,7 @@
             this.SubmitButton.TabIndex = 11;
             this.SubmitButton.Text = "Принять";
             this.SubmitButton.UseVisualStyleBackColor = true;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // MaxValueLabel
             // 
@@ -90,7 +91,6 @@
             this.BrightnessTrackBar.Size = new System.Drawing.Size(286, 45);
             this.BrightnessTrackBar.TabIndex = 8;
             this.BrightnessTrackBar.Value = 128;
-            this.BrightnessTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BrightnessTrackBar_MouseUp);
             // 
             // ContrastTrackBar
             // 
@@ -101,7 +101,6 @@
             this.ContrastTrackBar.Size = new System.Drawing.Size(286, 45);
             this.ContrastTrackBar.TabIndex = 7;
             this.ContrastTrackBar.Value = 127;
-            this.ContrastTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ContrastTrackBar_MouseUp);
             // 
             // label3
             // 
@@ -138,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 236);
+            this.ClientSize = new System.Drawing.Size(314, 206);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

@@ -34,32 +34,26 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 
         private void ContrastTrackBar_MouseUp(object sender, MouseEventArgs e)
         {
-            int currentvalue = this.ContrastTrackBar.Value;
-            int activeimage = ReferenceToMainForm.IndexActiviteForm;
-            int error = ReferenceProgrammImage.Contrast(activeimage, currentvalue);
-            if (error == 0)
-            {
-                int number = ReferenceProgrammImage.GetCountImages();
-                Bitmap referencetomap = ReferenceProgrammImage.GetLastBitmap();
-                FormImage result = new FormImage(number, ReferenceToMainForm, referencetomap);
-                result.Show();
-                result.Focus();
-            }
-            return;
+            
         }
 
-        private void BrightnessTrackBar_MouseUp(object sender, MouseEventArgs e)
+        private void SubmitButton_Click(object sender, EventArgs e)
         {
-            int currentvalue = this.ContrastTrackBar.Value;
+            int currentcontrastvalue = this.ContrastTrackBar.Value;
+            int currentbrightnessvalue = this.BrightnessTrackBar.Value;
             int activeimage = ReferenceToMainForm.IndexActiviteForm;
-            int error = ReferenceProgrammImage.Brightness(activeimage, currentvalue);
+            int error = ReferenceProgrammImage.Brightness(activeimage, currentbrightnessvalue);
             if (error == 0)
             {
-                int number = ReferenceProgrammImage.GetCountImages();
-                Bitmap referencetomap = ReferenceProgrammImage.GetLastBitmap();
-                FormImage result = new FormImage(number, ReferenceToMainForm, referencetomap);
-                result.Show();
-                result.Focus();
+                error = ReferenceProgrammImage.Contrast(activeimage, currentcontrastvalue);
+                if (error == 0)
+                {
+                    int number = ReferenceProgrammImage.GetCountImages();
+                    Bitmap referencetomap = ReferenceProgrammImage.GetLastBitmap();
+                    FormImage result = new FormImage(number, ReferenceToMainForm, referencetomap);
+                    result.Show();
+                    result.Focus();
+                }
             }
         }
     }

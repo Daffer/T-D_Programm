@@ -28,109 +28,118 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.trbLowerBorder = new System.Windows.Forms.TrackBar();
-            this.trbUpperBorder = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAutoBinarization = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.trbLowerBorder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trbUpperBorder)).BeginInit();
+            this.LowerBorderTrackBar = new System.Windows.Forms.TrackBar();
+            this.UpperBorderTrackBar = new System.Windows.Forms.TrackBar();
+            this.MinValueLabel = new System.Windows.Forms.Label();
+            this.MaxValueLabel = new System.Windows.Forms.Label();
+            this.SubmitButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.AutoBinarizationButton = new System.Windows.Forms.Button();
+            this.InfoLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.LowerBorderTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpperBorderTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
-            // trbLowerBorder
+            // LowerBorderTrackBar
             // 
-            this.trbLowerBorder.Location = new System.Drawing.Point(62, 87);
-            this.trbLowerBorder.Maximum = 255;
-            this.trbLowerBorder.Name = "trbLowerBorder";
-            this.trbLowerBorder.Size = new System.Drawing.Size(382, 56);
-            this.trbLowerBorder.TabIndex = 0;
-            this.trbLowerBorder.Value = 127;
+            this.LowerBorderTrackBar.Location = new System.Drawing.Point(17, 71);
+            this.LowerBorderTrackBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LowerBorderTrackBar.Maximum = 255;
+            this.LowerBorderTrackBar.Name = "LowerBorderTrackBar";
+            this.LowerBorderTrackBar.Size = new System.Drawing.Size(286, 45);
+            this.LowerBorderTrackBar.TabIndex = 0;
+            this.LowerBorderTrackBar.Value = 127;
             // 
-            // trbUpperBorder
+            // UpperBorderTrackBar
             // 
-            this.trbUpperBorder.Location = new System.Drawing.Point(62, 25);
-            this.trbUpperBorder.Maximum = 255;
-            this.trbUpperBorder.Name = "trbUpperBorder";
-            this.trbUpperBorder.Size = new System.Drawing.Size(382, 56);
-            this.trbUpperBorder.TabIndex = 1;
-            this.trbUpperBorder.Value = 128;
+            this.UpperBorderTrackBar.Location = new System.Drawing.Point(17, 11);
+            this.UpperBorderTrackBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UpperBorderTrackBar.Maximum = 255;
+            this.UpperBorderTrackBar.Name = "UpperBorderTrackBar";
+            this.UpperBorderTrackBar.Size = new System.Drawing.Size(286, 45);
+            this.UpperBorderTrackBar.TabIndex = 1;
+            this.UpperBorderTrackBar.Value = 128;
+            this.UpperBorderTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpperBorderTrackBar_MouseUp);
             // 
-            // label1
+            // MinValueLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "0";
+            this.MinValueLabel.AutoSize = true;
+            this.MinValueLabel.Location = new System.Drawing.Point(14, 54);
+            this.MinValueLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MinValueLabel.Name = "MinValueLabel";
+            this.MinValueLabel.Size = new System.Drawing.Size(13, 13);
+            this.MinValueLabel.TabIndex = 2;
+            this.MinValueLabel.Text = "0";
             // 
-            // label2
+            // MaxValueLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(450, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "255";
+            this.MaxValueLabel.AutoSize = true;
+            this.MaxValueLabel.Location = new System.Drawing.Point(278, 54);
+            this.MaxValueLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MaxValueLabel.Name = "MaxValueLabel";
+            this.MaxValueLabel.Size = new System.Drawing.Size(25, 13);
+            this.MaxValueLabel.TabIndex = 3;
+            this.MaxValueLabel.Text = "255";
             // 
-            // btnSubmit
+            // SubmitButton
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(294, 149);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(91, 23);
-            this.btnSubmit.TabIndex = 4;
-            this.btnSubmit.Text = "Принять";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.SubmitButton.Location = new System.Drawing.Point(11, 166);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubmitButton.Name = "SubmitButton";
+            this.SubmitButton.Size = new System.Drawing.Size(68, 25);
+            this.SubmitButton.TabIndex = 4;
+            this.SubmitButton.Text = "Принять";
+            this.SubmitButton.UseVisualStyleBackColor = true;
             // 
-            // btnCancel
+            // CancelButton
             // 
-            this.btnCancel.Location = new System.Drawing.Point(391, 149);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(101, 23);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Отменить";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.CancelButton.Location = new System.Drawing.Point(227, 166);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(76, 25);
+            this.CancelButton.TabIndex = 5;
+            this.CancelButton.Text = "Отменить";
+            this.CancelButton.UseVisualStyleBackColor = true;
             // 
-            // btnAutoBinarization
+            // AutoBinarizationButton
             // 
-            this.btnAutoBinarization.Location = new System.Drawing.Point(25, 149);
-            this.btnAutoBinarization.Name = "btnAutoBinarization";
-            this.btnAutoBinarization.Size = new System.Drawing.Size(231, 23);
-            this.btnAutoBinarization.TabIndex = 6;
-            this.btnAutoBinarization.Text = "Автоматическая бинаризация";
-            this.btnAutoBinarization.UseVisualStyleBackColor = true;
+            this.AutoBinarizationButton.Location = new System.Drawing.Point(11, 120);
+            this.AutoBinarizationButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AutoBinarizationButton.Name = "AutoBinarizationButton";
+            this.AutoBinarizationButton.Size = new System.Drawing.Size(292, 28);
+            this.AutoBinarizationButton.TabIndex = 6;
+            this.AutoBinarizationButton.Text = "Автоматическая бинаризация";
+            this.AutoBinarizationButton.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // InfoLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 196);
-            this.label5.MaximumSize = new System.Drawing.Size(500, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(483, 34);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Здесь ползунки - верхний означает какой верхний порог бинаризации, нижний - нижни" +
+            this.InfoLabel.Location = new System.Drawing.Point(11, 204);
+            this.InfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.InfoLabel.MaximumSize = new System.Drawing.Size(375, 0);
+            this.InfoLabel.Name = "InfoLabel";
+            this.InfoLabel.Size = new System.Drawing.Size(292, 70);
+            this.InfoLabel.TabIndex = 16;
+            this.InfoLabel.Text = "Здесь ползунки - верхний означает какой верхний порог бинаризации, нижний - нижни" +
     "й. Все, что внутри жиапазона бинаризуется черным.";
             // 
             // FormBinarization
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 285);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnAutoBinarization);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.trbUpperBorder);
-            this.Controls.Add(this.trbLowerBorder);
+            this.ClientSize = new System.Drawing.Size(313, 283);
+            this.Controls.Add(this.InfoLabel);
+            this.Controls.Add(this.AutoBinarizationButton);
+            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.SubmitButton);
+            this.Controls.Add(this.MaxValueLabel);
+            this.Controls.Add(this.MinValueLabel);
+            this.Controls.Add(this.UpperBorderTrackBar);
+            this.Controls.Add(this.LowerBorderTrackBar);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormBinarization";
             this.Text = "FormBinarization";
-            ((System.ComponentModel.ISupportInitialize)(this.trbLowerBorder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trbUpperBorder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LowerBorderTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpperBorderTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,13 +147,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TrackBar trbLowerBorder;
-        private System.Windows.Forms.TrackBar trbUpperBorder;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAutoBinarization;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TrackBar LowerBorderTrackBar;
+        private System.Windows.Forms.TrackBar UpperBorderTrackBar;
+        private System.Windows.Forms.Label MinValueLabel;
+        private System.Windows.Forms.Label MaxValueLabel;
+        private System.Windows.Forms.Button SubmitButton;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button AutoBinarizationButton;
+        private System.Windows.Forms.Label InfoLabel;
     }
 }
