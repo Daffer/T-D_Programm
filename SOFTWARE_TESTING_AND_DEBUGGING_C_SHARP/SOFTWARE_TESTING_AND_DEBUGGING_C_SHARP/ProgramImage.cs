@@ -23,7 +23,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             matrix[x, y] = newNum;
             return;
         }
-
         //  Подсчет площади выделенной зоны
         public int SquareCalculate(int x, int y, int num, int[,] matrix, int h, int w)
         {
@@ -240,26 +239,31 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 
         }
         //  функция контрастирования изображения
-        public int Contrast(Bitmap img, int n)
+        public int Contrast(int indexmap, int n)
         {
             int i, j;
-            if (img == null)
+            if (indexmap < 0 || indexmap > PixelMapList.Count)
             {
                 return -1;
             }
-
-            for (i = 0; i < img.Width; i++)
+            int width = PixelMapList[indexmap].Width;
+            int height = PixelMapList[indexmap].Height;
+            Bitmap newmap = new Bitmap(width, height);
+            Rectangle rec = new Rectangle(0, 0, width, height);
+            newmap.Clone(rec, PixelMapList[indexmap].PixelFormat);
+            for (i = 0; i < newmap.Width; i++)
             {
-                for (j = 0; j < img.Height; j++)
+                for (j = 0; j < newmap.Height; j++)
                 {
                     int r = 0, g = 0, b = 0;
-                    GetRGB(img, i, j, ref r, ref g, ref b);
+                    GetRGB(newmap, i, j, ref r, ref g, ref b);
                     r = ContrastPixel(r, n);
                     g = ContrastPixel(r, n);
                     b = ContrastPixel(r, n);
-                    img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                    newmap.SetPixel(i, j, Color.FromArgb(r, g, b));
                 }
             }
+            PixelMapList.Add(newmap);
             return 0;
         }
         //  Константы аппроксимирующие цветовые характеристики
@@ -559,7 +563,15 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         }
         private List<int[,]> InfoMatrixList;
         private List<Bitmap> PixelMapList;
+        public Bitmap GetLastBitmap()
+        {
+            return GetBitmap(PixelMapList.Count);
+        }
 
+        private Bitmap GetBitmap(int index)
+        {
+            return PixelMapList[index];
+        }
         // что осталось 
         // void handy_binarization(int t);
         // void brightness(int n);

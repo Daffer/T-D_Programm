@@ -16,5 +16,15 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         {
             InitializeComponent();
         }
+
+        private void BrightnessNContrastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormBrightness setting = new FormBrightness(Images);
+            setting.Show();
+            setting.Focus();
+            return;
+        }
+
+        private ProgramImage Images = new ProgramImage();
     }
 }
