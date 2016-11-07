@@ -41,7 +41,7 @@
             this.NegativeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MorphoBorderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.калибровкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.информацияПоЧастицеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InfoOfParticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.переводТаблицыВExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.рисованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,7 +126,7 @@
             this.NegativeToolStripMenuItem,
             this.MorphoBorderToolStripMenuItem,
             this.калибровкаToolStripMenuItem,
-            this.информацияПоЧастицеToolStripMenuItem,
+            this.InfoOfParticleToolStripMenuItem,
             this.toolStripSeparator1,
             this.переводТаблицыВExcelToolStripMenuItem});
             this.изображениеToolStripMenuItem.Name = "изображениеToolStripMenuItem";
@@ -158,6 +158,7 @@
             this.MorphoBorderToolStripMenuItem.Name = "MorphoBorderToolStripMenuItem";
             this.MorphoBorderToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.MorphoBorderToolStripMenuItem.Text = "Коррекция края";
+            this.MorphoBorderToolStripMenuItem.Click += new System.EventHandler(this.MorphoBorderToolStripMenuItem_Click);
             // 
             // калибровкаToolStripMenuItem
             // 
@@ -165,11 +166,12 @@
             this.калибровкаToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.калибровкаToolStripMenuItem.Text = "Калибровка";
             // 
-            // информацияПоЧастицеToolStripMenuItem
+            // InfoOfParticleToolStripMenuItem
             // 
-            this.информацияПоЧастицеToolStripMenuItem.Name = "информацияПоЧастицеToolStripMenuItem";
-            this.информацияПоЧастицеToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.информацияПоЧастицеToolStripMenuItem.Text = "Информация по частице";
+            this.InfoOfParticleToolStripMenuItem.Name = "InfoOfParticleToolStripMenuItem";
+            this.InfoOfParticleToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.InfoOfParticleToolStripMenuItem.Text = "Информация по частице";
+            this.InfoOfParticleToolStripMenuItem.Click += new System.EventHandler(this.InfoOfParticleToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -286,7 +288,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.menuStrip1.ResumeLayout(false);
@@ -311,7 +313,7 @@
         private System.Windows.Forms.ToolStripMenuItem NegativeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MorphoBorderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem калибровкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem информацияПоЧастицеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InfoOfParticleToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem переводТаблицыВExcelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem рисованиеToolStripMenuItem;

@@ -53,5 +53,25 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             setting.Show();
             setting.Focus();
         }
+
+        private void MorphoBorderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = this.IndexActiviteForm;
+            int error = Images.BorderProcessing(index);
+            if (error == 0)
+            {
+                index = Images.GetCountImages();
+                Bitmap map = Images.GetLastBitmap();
+                FormImage newimage = new FormImage(index, this, map);
+                newimage.Show();
+                newimage.Focus();
+                return;
+            }
+        }
+
+        private void InfoOfParticleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

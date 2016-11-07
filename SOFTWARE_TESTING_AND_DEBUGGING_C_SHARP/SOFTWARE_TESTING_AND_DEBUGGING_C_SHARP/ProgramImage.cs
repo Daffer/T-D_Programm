@@ -146,27 +146,34 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  обработка краев изображения
-        public void BorderProcessing(Bitmap img)
+        public int BorderProcessing(int index)
         {
-            int i, j;
-            int h = img.Height;
-            int w = img.Width;
-
-            for (j = 0; j < h; j++)
+            int j;
+            if (index < 0 || index > PixelMapList.Count || PixelMapList.Count == 0)
             {
-                BorderProcessingHelper(img, h, w, 0, j);
-                BorderProcessingHelper(img, h, w, 1, j);
-                BorderProcessingHelper(img, h, w, w - 2, j);
-                BorderProcessingHelper(img, h, w, w - 1, j);
+                return -1;
             }
-            for (j = 0; j < w; j++)
+            int height = 0;
+            int width = 0;
+            Bitmap newmap = CreateMapForLastMap(index, ref height, ref width);
+            if (newmap == null)
+                return -1;
+            for (j = 0; j < height; j++)
             {
-                BorderProcessingHelper(img, h, w, j, 0);
-                BorderProcessingHelper(img, h, w, j, 1);
-                BorderProcessingHelper(img, h, w, j, h - 2);
-                BorderProcessingHelper(img, h, w, j, h - 1);
+                BorderProcessingHelper(newmap, height, width, 0, j);
+                BorderProcessingHelper(newmap, height, width, 1, j);
+                BorderProcessingHelper(newmap, height, width, width - 2, j);
+                BorderProcessingHelper(newmap, height, width, width - 1, j);
             }
-            return;
+            for (j = 0; j < width; j++)
+            {
+                BorderProcessingHelper(newmap, height, width, j, 0);
+                BorderProcessingHelper(newmap, height, width, j, 1);
+                BorderProcessingHelper(newmap, height, width, j, height - 2);
+                BorderProcessingHelper(newmap, height, width, j, height - 1);
+            }
+            PixelMapList.Add(newmap);
+            return 0;
         }
         //  получение негатива изображения
         public void Negativ(Bitmap img)
@@ -246,14 +253,14 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             {
                 return -1;
             }
-            int width = PixelMapList[indexmap].Width;
-            int height = PixelMapList[indexmap].Height;
-            Bitmap newmap = new Bitmap(width, height);
-            Rectangle rec = new Rectangle(0, 0, width, height);
-            newmap.Clone(rec, PixelMapList[indexmap].PixelFormat);
-            for (i = 0; i < newmap.Width; i++)
+            int height = 0;
+            int width = 0;
+            Bitmap newmap = CreateMapForLastMap(indexmap, ref height, ref width);
+            if (newmap == null)
+                return -1;
+            for (i = 0; i < width; i++)
             {
-                for (j = 0; j < newmap.Height; j++)
+                for (j = 0; j < height; j++)
                 {
                     int r = 0, g = 0, b = 0;
                     GetRGB(newmap, i, j, ref r, ref g, ref b);
@@ -407,11 +414,11 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             {
                 return -1;
             }
-            int width = PixelMapList[index].Width;
-            int height = PixelMapList[index].Height;
-            Bitmap newmap = new Bitmap(width, height);
-            Rectangle rec = new Rectangle(0, 0, width, height);
-            newmap.Clone(rec, PixelMapList[index].PixelFormat);
+            int height = 0;
+            int width = 0;
+            Bitmap newmap = CreateMapForLastMap(index, ref height, ref width);
+            if (newmap == null)
+                return -1;
             int[] p = new int[256];// ?
             double[] pp = new double[256];//?
             int total = 0;
@@ -593,6 +600,20 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         {
             PixelMapList.Add(newmap);
             return;
+        }
+
+        private Bitmap CreateMapForLastMap(int index, ref int height, ref int width)
+        {
+            if (index < 0 || index > PixelMapList.Count || PixelMapList.Count == 0)
+            {
+                return null;
+            }
+            width = PixelMapList[index].Width;
+            height = PixelMapList[index].Height;
+            Bitmap newmap = new Bitmap(width, height);
+            Rectangle rec = new Rectangle(0, 0, width, height);
+            newmap.Clone(rec, PixelMapList[index].PixelFormat);
+            return newmap;
         }
         // что осталось 
         // void handy_binarization(int t);

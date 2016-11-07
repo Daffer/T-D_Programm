@@ -90,6 +90,7 @@
             this.SubmitButton.TabIndex = 4;
             this.SubmitButton.Text = "Принять";
             this.SubmitButton.UseVisualStyleBackColor = true;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // CancelButton
             // 
@@ -100,6 +101,7 @@
             this.CancelButton.TabIndex = 5;
             this.CancelButton.Text = "Отменить";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // AutoBinarizationButton
             // 
@@ -110,6 +112,7 @@
             this.AutoBinarizationButton.TabIndex = 6;
             this.AutoBinarizationButton.Text = "Автоматическая бинаризация";
             this.AutoBinarizationButton.UseVisualStyleBackColor = true;
+            this.AutoBinarizationButton.Click += new System.EventHandler(this.AutoBinarizationButton_Click);
             // 
             // InfoLabel
             // 
