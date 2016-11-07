@@ -28,49 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tblParticlesInfo = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.tblParticlesInfo)).BeginInit();
+            this.ParticlesInfoDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticlesInfoDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tblParticlesInfo
-            // 
-            this.tblParticlesInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblParticlesInfo.Location = new System.Drawing.Point(12, 12);
-            this.tblParticlesInfo.Name = "tblParticlesInfo";
-            this.tblParticlesInfo.RowTemplate.Height = 24;
-            this.tblParticlesInfo.Size = new System.Drawing.Size(790, 355);
-            this.tblParticlesInfo.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 378);
-            this.label5.MaximumSize = new System.Drawing.Size(500, 0);
+            this.label5.Location = new System.Drawing.Point(27, 307);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.MaximumSize = new System.Drawing.Size(375, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(468, 34);
+            this.label5.Size = new System.Drawing.Size(363, 26);
             this.label5.TabIndex = 16;
             this.label5.Text = "Полные сведения о всех частицах на активном изображении. Можно добавить кнопку им" +
     "порта в Excel";
             // 
+            // ParticlesInfoDataGridView
+            // 
+            this.ParticlesInfoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ParticlesInfoDataGridView.Location = new System.Drawing.Point(9, 10);
+            this.ParticlesInfoDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.ParticlesInfoDataGridView.Name = "ParticlesInfoDataGridView";
+            this.ParticlesInfoDataGridView.RowTemplate.Height = 24;
+            this.ParticlesInfoDataGridView.Size = new System.Drawing.Size(592, 288);
+            this.ParticlesInfoDataGridView.TabIndex = 1;
+            // 
             // FormAutoMeasureTable
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 421);
+            this.ClientSize = new System.Drawing.Size(610, 342);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.tblParticlesInfo);
+            this.Controls.Add(this.ParticlesInfoDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormAutoMeasureTable";
             this.Text = "FormAutoMeasureTable";
-            ((System.ComponentModel.ISupportInitialize)(this.tblParticlesInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParticlesInfoDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView tblParticlesInfo;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView ParticlesInfoDataGridView;
     }
 }

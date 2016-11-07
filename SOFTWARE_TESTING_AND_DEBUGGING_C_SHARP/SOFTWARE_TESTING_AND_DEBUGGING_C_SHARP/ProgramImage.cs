@@ -15,66 +15,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             InfoMatrixList = new List<int[,]>();
             PixelMapList = new List<Bitmap>();
         }
-        //  Вспомогательная функция для подсчета площади зоны (заносит новые пиксели для подсчета)
-        public void SquareToolforStack(Stack<Point> needCheckedPixel, int [,] matrix, int newNum, int x, int y)
-        {
-            Point item = new Point(x, y);
-            needCheckedPixel.Push(item);
-            matrix[x, y] = newNum;
-            return;
-        }
-        //  Подсчет площади выделенной зоны
-        public int SquareCalculate(int x, int y, int num, int[,] matrix, int h, int w)
-        {
-            if (h < 0 || w < 0)
-                return -1;              // Ошибка входных данных
-            if (h * w > matrix.Length)
-                return -2;              // Ошибка длины или высоты
-            if (x > w || x < 0 || y > h || y < 0)
-                return 0;
-            int square = 0;
-            int oldNum = matrix[x, y];
-            Stack<Point> needCheckedPixel = new Stack<Point>();
-            Point item = new Point(x, y);
-            int I, J;
-            needCheckedPixel.Push(item);
-            while (needCheckedPixel.Count != 0)
-            {
-                item = needCheckedPixel.Pop();
-                I = item.X;
-                J = item.Y;
-                if (matrix[I, J] != num)
-                {
-                    matrix[I, J] = num;
-                    square++;
-                }
-                if (I < h - 1)
-                    if (matrix[I + 1, J] == oldNum)
-                    {
-                        SquareToolforStack(needCheckedPixel, matrix, num, I + 1, J);
-                        square++;
-                    }
-                if (I > 0)
-                    if ( matrix[I -1, J] == oldNum)
-                    {
-                        SquareToolforStack(needCheckedPixel, matrix, num, I - 1, J);
-                        square++;
-                    }
-                if (J < w - 1)
-                    if (matrix[I, J + 1] == oldNum) 
-                    {
-                        SquareToolforStack(needCheckedPixel, matrix, num, I, J + 1);
-                        square++;
-                    }
-                if (J > 0)
-                    if (matrix[I, J - 1] == oldNum) 
-                    {
-                        SquareToolforStack(needCheckedPixel, matrix, num, I, J - 1);
-                        square++;
-                    }
-            }
-            return square;
-        }
         //  вспомогательная функция, получающая RGB
         public void GetRGB(Bitmap img, int x, int y, ref int r, ref int g, ref int b)
         {
@@ -478,60 +418,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             PixelMapList.Add(newmap);
             return 0;
         }
-        //  Вспомогательная функция определяющая границу изображения
-        public bool IsBorder(int[,] a, int I, int J, int h, int w)
-        {
-            if (I > w || I < 0 || J < 0 || J > h)
-                return false;
-            if (a == null)
-                return false;
-            if ((I > 0) && (a[I - 1, J] == 0))
-                return true;
-            if ((I < h - 1) && (a[I + 1, J] == 0))
-                return true;
-            if ((J < w - 1) && (a[I, J + 1] == 0))
-                return true;
-            if ((J > 0) && (a[I, J - 1] == 0))
-                return true;
-            return false;
-        }
-        //  Подсчет периметра
-        public int Perimetr(int [,] a, int num, int h,int w)
-        {
-            int result = 0;
-            int count = 0;
-            int count_bor = 0;
-            bool is_border;
-            if (a == null)
-                return -1;
-            if (h * w >= 1920 * 1080)
-                return -1;
-            if (num < 0)
-                return -1;
-            for (int I = 0; I < h; I++) 
-            {
-                for (int J = 0; J < w; J++)
-                {
-                    is_border = false;
-                    if (a[I,J] == num)
-                        is_border = IsBorder(a, I, J, h, w);
-                    if (is_border)
-                    {
-                        count_bor++;
-                        if ((I > 0) && (J > 0) && (!IsBorder(a, I - 1, J, h, w)) && (!IsBorder(a, I, J - 1, h, w)))
-                            count++;
-                        if ((I < h - 1) && (J > 0) && (!IsBorder(a, I + 1, J, h, w)) && (!IsBorder(a, I, J - 1, h, w)))
-                            count++;
-                        if ((I < h - 1) && (J < w - 1) && (!IsBorder(a, I + 1, J, h, w)) && (!IsBorder(a, I, J + 1, h, w)))
-                            count++;
-                        if ((I > 0) && (J < w - 1) && (!IsBorder(a, I - 1, J, h, w)) && (!IsBorder(a, I, J + 1, h, w)))
-                            count++;
-                    }
-                }
-            }
-            result = Convert.ToInt32(count_bor + Convert.ToDouble(count * 0.2071));
-            return result;
-        }
         public int InitMatrix(int[,] Matrix, int Width, int Height)
         {
             int i, j;
@@ -592,8 +478,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         {
             return PixelMapList.Count;
         }
-        private Bitmap GetBitmap(int index)
+        public Bitmap GetBitmap(int index)
         {
+            if (index < 0 || index > PixelMapList.Count)
+                return null;
             return PixelMapList[index];
         }
         public void AddNewImage(Bitmap newmap)
@@ -601,7 +489,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             PixelMapList.Add(newmap);
             return;
         }
-
         private Bitmap CreateMapForLastMap(int index, ref int height, ref int width)
         {
             if (index < 0 || index > PixelMapList.Count || PixelMapList.Count == 0)

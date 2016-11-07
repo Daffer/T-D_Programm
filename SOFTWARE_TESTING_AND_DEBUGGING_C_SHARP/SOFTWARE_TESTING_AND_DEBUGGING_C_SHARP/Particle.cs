@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
-    class Particle
+    public class Particle
     {
         private double _Square;
         public double Square

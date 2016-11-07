@@ -43,7 +43,7 @@
             // LowerBorderTrackBar
             // 
             this.LowerBorderTrackBar.Location = new System.Drawing.Point(17, 71);
-            this.LowerBorderTrackBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LowerBorderTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.LowerBorderTrackBar.Maximum = 255;
             this.LowerBorderTrackBar.Name = "LowerBorderTrackBar";
             this.LowerBorderTrackBar.Size = new System.Drawing.Size(286, 45);
@@ -53,7 +53,7 @@
             // UpperBorderTrackBar
             // 
             this.UpperBorderTrackBar.Location = new System.Drawing.Point(17, 11);
-            this.UpperBorderTrackBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UpperBorderTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.UpperBorderTrackBar.Maximum = 255;
             this.UpperBorderTrackBar.Name = "UpperBorderTrackBar";
             this.UpperBorderTrackBar.Size = new System.Drawing.Size(286, 45);
@@ -84,7 +84,7 @@
             // SubmitButton
             // 
             this.SubmitButton.Location = new System.Drawing.Point(11, 166);
-            this.SubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(68, 25);
             this.SubmitButton.TabIndex = 4;
@@ -95,7 +95,7 @@
             // CancelButton
             // 
             this.CancelButton.Location = new System.Drawing.Point(227, 166);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(76, 25);
             this.CancelButton.TabIndex = 5;
@@ -106,7 +106,7 @@
             // AutoBinarizationButton
             // 
             this.AutoBinarizationButton.Location = new System.Drawing.Point(11, 120);
-            this.AutoBinarizationButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AutoBinarizationButton.Margin = new System.Windows.Forms.Padding(2);
             this.AutoBinarizationButton.Name = "AutoBinarizationButton";
             this.AutoBinarizationButton.Size = new System.Drawing.Size(292, 28);
             this.AutoBinarizationButton.TabIndex = 6;
@@ -120,7 +120,7 @@
             this.InfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.InfoLabel.MaximumSize = new System.Drawing.Size(375, 0);
             this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(292, 70);
+            this.InfoLabel.Size = new System.Drawing.Size(292, 0);
             this.InfoLabel.TabIndex = 16;
             this.InfoLabel.Text = "Здесь ползунки - верхний означает какой верхний порог бинаризации, нижний - нижни" +
     "й. Все, что внутри жиапазона бинаризуется черным.";
@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 283);
+            this.ClientSize = new System.Drawing.Size(313, 211);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.AutoBinarizationButton);
             this.Controls.Add(this.CancelButton);
@@ -138,7 +138,7 @@
             this.Controls.Add(this.MinValueLabel);
             this.Controls.Add(this.UpperBorderTrackBar);
             this.Controls.Add(this.LowerBorderTrackBar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormBinarization";
             this.Text = "FormBinarization";
             ((System.ComponentModel.ISupportInitialize)(this.LowerBorderTrackBar)).EndInit();

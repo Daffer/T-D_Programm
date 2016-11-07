@@ -71,7 +71,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 
         private void InfoOfParticleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
