@@ -15,6 +15,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         public MainForm()
         {
             InitializeComponent();
+            Calc =  new Calculater(this.Images);
         }
 
         private void BrightnessNContrastToolStripMenuItem_Click(object sender, EventArgs e)
@@ -25,6 +26,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         private ProgramImage Images = new ProgramImage();
+        private Calculater Calc;
         public int IndexActiviteForm
         {
             get { return IndexActiviteFormImage; }
@@ -71,7 +73,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 
         private void InfoOfParticleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            FormAutoMeasureTable measuretable = new FormAutoMeasureTable(this, this.Images, this.Calc, this.IndexActiviteFormImage);
+            measuretable.Show();
+            measuretable.Focus();
+            return;
         }
     }
 }

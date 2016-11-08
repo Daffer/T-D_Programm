@@ -9,6 +9,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 {
     public class Calculater
     {
+        public Calculater(ProgramImage reference)
+        {
+            ReferenceImage = reference;
+        }
         private ProgramImage ReferenceImage;
         private double rate = 1;
         //  Вспомогательная функция для подсчета площади зоны (заносит новые пиксели для подсчета)
@@ -202,9 +206,13 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             Bitmap map = ReferenceImage.GetBitmap(index);
             if (map == null)
                 return -1;
-            int[,] matrix = null;
+            int[,] matrix = new int[map.Width,map.Height];
             int countparticles = MakeCart(map, ref matrix);
             particles = new Particle[countparticles];
+            for (int I = 0; I < particles.Length; I++)
+            {
+                particles[I] = new Particle();
+            }
             for (i = 0; i < map.Width; i++)
             {
                 for (j = 0; j < map.Height; j++)

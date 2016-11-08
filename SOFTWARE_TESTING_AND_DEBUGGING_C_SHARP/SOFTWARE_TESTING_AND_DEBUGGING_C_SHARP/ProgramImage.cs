@@ -12,7 +12,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
     {
         public ProgramImage()
         {
-            InfoMatrixList = new List<int[,]>();
             PixelMapList = new List<Bitmap>();
         }
         //  вспомогательная функция, получающая RGB
@@ -418,57 +417,18 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             PixelMapList.Add(newmap);
             return 0;
         }
-        public int InitMatrix(int[,] Matrix, int Width, int Height)
-        {
-            int i, j;
-            if (Matrix == null)
-            {
-                return -1;
-            }
-            if (Width * Height >= (1920 * 1080))
-                return -2;
-            for (i = 0; i < Width; i++)
-            {
-                for (j = 0; j < Height; j++)
-                {
-                    Matrix[i, j] = 0;
-                }
-            }
-            return 0;
-        }
-        public int MakeMap(Bitmap PixelMap, int[,] InfoMatrix)
-        {
-            int i, j;
-            int Height = PixelMap.Height;
-            int Width = PixelMap.Width;
-            InfoMatrix = new int[Width, Height];
-
-            InitMatrix(InfoMatrix, Width, Height);
-            return 0;
-
-        }
         public int Brightness(int index, int n)
         {
             return -1;
-        }
-
-        public List<int[,]> GetMatrixList()
-        {
-            return this.InfoMatrixList;
         }
         public List<Bitmap> GetBitmapList()
         {
             return this.PixelMapList;
         }
-        public void SetMatrixList(List<int[,]> a)
-        {
-            this.InfoMatrixList = a;
-        }
         public void SetBitmapList(List<Bitmap> a)
         {
             this.PixelMapList = a;
         }
-        private List<int[,]> InfoMatrixList;
         private List<Bitmap> PixelMapList;
         public Bitmap GetLastBitmap()
         {
