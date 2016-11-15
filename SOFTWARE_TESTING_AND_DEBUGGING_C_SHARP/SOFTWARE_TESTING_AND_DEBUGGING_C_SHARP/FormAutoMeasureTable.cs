@@ -56,5 +56,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         private Calculater ReferenceToCalculater;
         private Particle[] Particles;
         private int Index;
+
+        private void SaveToExcelButton_Click(object sender, EventArgs e)
+        {
+            return;
+        }
     }
 }

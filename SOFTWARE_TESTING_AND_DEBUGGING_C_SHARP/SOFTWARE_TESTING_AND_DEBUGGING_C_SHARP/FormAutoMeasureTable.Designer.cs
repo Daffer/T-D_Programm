@@ -30,6 +30,7 @@
         {
             this.label5 = new System.Windows.Forms.Label();
             this.ParticlesInfoDataGridView = new System.Windows.Forms.DataGridView();
+            this.SaveToExcelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ParticlesInfoDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,14 +56,24 @@
             this.ParticlesInfoDataGridView.Size = new System.Drawing.Size(592, 288);
             this.ParticlesInfoDataGridView.TabIndex = 1;
             // 
+            // SaveToExcelButton
+            // 
+            this.SaveToExcelButton.Location = new System.Drawing.Point(452, 307);
+            this.SaveToExcelButton.Name = "SaveToExcelButton";
+            this.SaveToExcelButton.Size = new System.Drawing.Size(146, 23);
+            this.SaveToExcelButton.TabIndex = 17;
+            this.SaveToExcelButton.UseVisualStyleBackColor = true;
+            this.SaveToExcelButton.Click += new System.EventHandler(this.SaveToExcelButton_Click);
+            // 
             // FormAutoMeasureTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 342);
+            this.Controls.Add(this.SaveToExcelButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ParticlesInfoDataGridView);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAutoMeasureTable";
             this.Text = "FormAutoMeasureTable";
             ((System.ComponentModel.ISupportInitialize)(this.ParticlesInfoDataGridView)).EndInit();
@@ -74,5 +85,6 @@
         #endregion
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView ParticlesInfoDataGridView;
+        private System.Windows.Forms.Button SaveToExcelButton;
     }
 }
