@@ -15,14 +15,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
     public class IntegralTest
     {
         public delegate int Method(int indexmap, int value);
-        [Test]
-        public void TestAddImage() // ??
-        {
-            int correctanswer = 1;
-            MainForm testform = new MainForm();
-            testform.OpenToolStripMenuItem_Click(null, new EventArgs());
-            Assert.AreEqual(testform.Images.GetCountImages(), correctanswer);
-        }
 
         [Test]
         public void TestContrastGUIResult()
@@ -200,6 +192,144 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
                     equ = false;
                     break;
                 }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestMeasureTableGUI_DiametrGOST()
+        {
+            MainForm main = new MainForm();
+            Bitmap map = new Bitmap(800, 600);
+            map.SetPixel(10, 10, Color.White);
+            main.Images.AddNewImage(map);
+            FormAutoMeasureTable testform = new FormAutoMeasureTable(main, main.Images, main.Calc, 0);
+            Particle[] part = null;
+            double[] result = null;
+            GetMeasureInfoFromInterface(ref result, 5, testform);
+            GetMeasureInfoFromCalc(ref part, main.Calc, 0);
+            bool equ = true;
+            for (int I = 0; I < part.Length; I++)
+                if (part[I].DiameterGost != result[I])
+                {
+                    equ = false;
+                    break;
+                }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestMeasureTableGUI_Diametr()
+        {
+            MainForm main = new MainForm();
+            Bitmap map = new Bitmap(800, 600);
+            map.SetPixel(10, 10, Color.White);
+            main.Images.AddNewImage(map);
+            FormAutoMeasureTable testform = new FormAutoMeasureTable(main, main.Images, main.Calc, 0);
+            Particle[] part = null;
+            double[] result = null;
+            GetMeasureInfoFromInterface(ref result, 6, testform);
+            GetMeasureInfoFromCalc(ref part, main.Calc, 0);
+            bool equ = true;
+            for (int I = 0; I < part.Length; I++)
+                if (part[I].Diameter != result[I])
+                {
+                    equ = false;
+                    break;
+                }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestMeasureTableGUI_Smoothness()
+        {
+            MainForm main = new MainForm();
+            Bitmap map = new Bitmap(800, 600);
+            map.SetPixel(10, 10, Color.White);
+            main.Images.AddNewImage(map);
+            FormAutoMeasureTable testform = new FormAutoMeasureTable(main, main.Images, main.Calc, 0);
+            Particle[] part = null;
+            double[] result = null;
+            GetMeasureInfoFromInterface(ref result, 7, testform);
+            GetMeasureInfoFromCalc(ref part, main.Calc, 0);
+            bool equ = true;
+            for (int I = 0; I < part.Length; I++)
+                if (part[I].Smoothness != result[I])
+                {
+                    equ = false;
+                    break;
+                }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestMeasureTableGUI_FomrFactor()
+        {
+            MainForm main = new MainForm();
+            Bitmap map = new Bitmap(800, 600);
+            map.SetPixel(10, 10, Color.White);
+            main.Images.AddNewImage(map);
+            FormAutoMeasureTable testform = new FormAutoMeasureTable(main, main.Images, main.Calc, 0);
+            Particle[] part = null;
+            double[] result = null;
+            GetMeasureInfoFromInterface(ref result, 7, testform);
+            GetMeasureInfoFromCalc(ref part, main.Calc, 0);
+            bool equ = true;
+            for (int I = 0; I < part.Length; I++)
+                if (part[I].FormFactor != result[I])
+                {
+                    equ = false;
+                    break;
+                }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestBinarizationNMeasureInfo()
+        {
+            ProgramImage image = new ProgramImage();
+            Calculater calc = new Calculater(image);
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    if(I<375 && I>425 && J < 275 && J > 325)
+                        map.SetPixel(I, J, Color.White);
+                    else
+                        map.SetPixel(I, J, Color.Black);
+
+            image.AddNewImage(map);
+            image.MethodOtsu(0);
+            Particle[] part = null;
+            calc.AllCalculations(ref part, 2);
+            bool equ = true;
+            if (part != null && part.Length == 1)
+                equ = true;
+            else
+                equ = false;
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestContrastNNegative()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    if (I < 375 && I > 425 && J < 275 && J > 325)
+                        map.SetPixel(I, J, Color.White);
+                    else
+                        map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Contrast(0, 100);
+            Bitmap lastmap = image.GetLastBitmap();
+            image.Negativ(lastmap);
+            Particle[] part = null;
+            calc.AllCalculations(ref part, 2);
+            bool equ = true;
+            if (part != null && part.Length == 1)
+                equ = true;
+            else
+                equ = false;
             Assert.AreEqual(equ, true);
         }
     }

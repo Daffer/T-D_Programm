@@ -115,9 +115,16 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return 0;
         }
         //  получение негатива изображения
-        public void Negativ(Bitmap img)
+        public int Negativ(int index)
         {
             int i, j;
+            if (index < 0 || index > PixelMapList.Count || PixelMapList.Count == 0)
+            {
+                return -1;
+            }
+            int height = 0;
+            int width = 0;
+            Bitmap newmap = CreateNewMapForMap(index, ref height, ref width);
             for (i = 0; i < img.Width; i++)
             {
                 for (j = 0; j < img.Height; j++)
