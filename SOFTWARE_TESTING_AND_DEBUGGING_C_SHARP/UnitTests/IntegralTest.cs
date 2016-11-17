@@ -26,7 +26,8 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             FormBrightness testform = new FormBrightness(main.Images, main);
             testform.SubmitButton_Click(null, new EventArgs());
             Bitmap result = main.Images.GetLastBitmap();
-            main.Images.Contrast(0, 127);
+            main.Images.Brightness(0, 128);
+            main.Images.Contrast(1, 127);
             Bitmap correct = main.Images.GetLastBitmap();
             bool equ = true;
             for (int I = 0; I < result.Width; I++)
@@ -318,6 +319,48 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             image.AddNewImage(map);
             image.Contrast(0, 0);
             image.Negativ(1);
+            image.Negativ(2);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if (temp1 != temp2)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestBrightnessNNegativeBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.White);
+            image.AddNewImage(map);
+            /*for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    int r = 0, g = 0, b = 0;
+                    image.GetRGB(map, I,J, ref r, ref g, ref b);
+                }
+            }*/
+            image.Brightness(0, 0);
+            image.Negativ(1);
+            image.Negativ(2);
+            image.Brightness(3, 0);
             Bitmap res = image.GetLastBitmap();
             bool equ = true;
             for (int I = 0; I < map.Width; I++)

@@ -425,8 +425,59 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             PixelMapList.Add(newmap);
             return 0;
         }
-        public int Brightness(int index, int n)
+
+        /*public int Contrast(int indexmap, int n)
         {
+            int i, j;
+            if (indexmap < 0 || indexmap > PixelMapList.Count || PixelMapList.Count == 0)
+            {
+                return -1;
+            }
+            int height = 0;
+            int width = 0;
+            Bitmap newmap = CreateNewMapForMap(indexmap, ref height, ref width);
+            if (newmap == null)
+                return -1;
+            for (i = 0; i < width; i++)
+            {
+                for (j = 0; j < height; j++)
+                {
+                    int r = 0, g = 0, b = 0;
+                    GetRGB(newmap, i, j, ref r, ref g, ref b);
+                    r = ContrastPixel(r, n);
+                    g = ContrastPixel(r, n);
+                    b = ContrastPixel(r, n);
+                    newmap.SetPixel(i, j, Color.FromArgb(r, g, b));
+                }
+            }
+            PixelMapList.Add(newmap);
+            return 0;
+        }*/
+        public int Brightness(int indexmap, int n)
+        {
+            int i, j;
+            if (indexmap < 0 || indexmap > PixelMapList.Count || PixelMapList.Count == 0)
+            {
+                return -1;
+            }
+            int height = 0;
+            int width = 0;
+            Bitmap newmap = CreateNewMapForMap(indexmap, ref height, ref width);
+            if (newmap == null)
+                return -1;
+            for (i = 0; i < width; i++)
+            {
+                for (j = 0; j < height; j++)
+                {
+                    int r = 0, g = 0, b = 0;
+                    GetRGB(newmap, i, j, ref r, ref g, ref b);
+                    r = r + n;
+                    g = g + n;
+                    b = b + n;
+                    newmap.SetPixel(i, j, Color.FromArgb(r, g, b));
+                }
+            }
+            PixelMapList.Add(newmap);
             return 0;
         }
         public List<Bitmap> GetBitmapList()
@@ -467,7 +518,16 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             height = PixelMapList[index].Height;
             Bitmap newmap = new Bitmap(width, height);
             Rectangle rec = new Rectangle(0, 0, width, height);
-            newmap.Clone(rec, PixelMapList[index].PixelFormat);
+            //newmap.Clone(rec, PixelMapList[index].PixelFormat);
+            for (int I = 0; I < newmap.Width; I++)
+            {
+                for (int J = 0; J < newmap.Height; J++)
+                {
+                    int r = 0, g = 0, b = 0;
+                    GetRGB(PixelMapList[index], I, J, ref r, ref g, ref b);
+                    newmap.SetPixel(I, J, Color.FromArgb(r, g, b));
+                }
+            }
             return newmap;
         }
         // что осталось 
