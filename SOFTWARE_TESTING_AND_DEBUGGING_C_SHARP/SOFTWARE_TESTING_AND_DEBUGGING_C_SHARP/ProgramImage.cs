@@ -212,8 +212,8 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     int r = 0, g = 0, b = 0;
                     GetRGB(newmap, i, j, ref r, ref g, ref b);
                     r = ContrastPixel(r, n);
-                    g = ContrastPixel(r, n);
-                    b = ContrastPixel(r, n);
+                    g = ContrastPixel(g, n);
+                    b = ContrastPixel(b, n);
                     newmap.SetPixel(i, j, Color.FromArgb(r, g, b));
                 }
             }

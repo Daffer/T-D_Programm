@@ -129,6 +129,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             result = Convert.ToInt32(count_bor + Convert.ToDouble(count * 0.2071));
             return result;
         }
+
         public int MakeCart(Bitmap map,ref int[,] matrix)
         {
             if (map == null || matrix == null)

@@ -295,11 +295,10 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
                         map.SetPixel(I, J, Color.White);
                     else
                         map.SetPixel(I, J, Color.Black);
-
             image.AddNewImage(map);
             image.MethodOtsu(0);
             Particle[] part = null;
-            calc.AllCalculations(ref part, 2);
+            calc.AllCalculations(ref part, 1);
             bool equ = true;
             if (part != null && part.Length == 1)
                 equ = true;
