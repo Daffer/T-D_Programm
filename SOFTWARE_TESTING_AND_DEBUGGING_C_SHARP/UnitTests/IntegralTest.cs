@@ -27,7 +27,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             testform.SubmitButton_Click(null, new EventArgs());
             Bitmap result = main.Images.GetLastBitmap();
             main.Images.Brightness(0, 128);
-            main.Images.Contrast(1, 127);
+            main.Images.Contrast(main.Images.GetCountImages() - 2, 127);
             Bitmap correct = main.Images.GetLastBitmap();
             bool equ = true;
             for (int I = 0; I < result.Width; I++)
@@ -350,14 +350,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
                 for (int J = 0; J < 600; J++)
                     map.SetPixel(I, J, Color.White);
             image.AddNewImage(map);
-            /*for (int I = 0; I < map.Width; I++)
-            {
-                for (int J = 0; J < map.Height; J++)
-                {
-                    int r = 0, g = 0, b = 0;
-                    image.GetRGB(map, I,J, ref r, ref g, ref b);
-                }
-            }*/
             image.Brightness(0, 0);
             image.Negativ(1);
             image.Negativ(2);
@@ -371,6 +363,330 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
                     Color temp1 = map.GetPixel(I, J);
                     Color temp2 = res.GetPixel(I, J);
                     if (temp1 != temp2)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestBrightnessNNegativeSomeValueBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.White);
+            image.AddNewImage(map);
+            image.Brightness(0, -10);
+            image.Negativ(1);
+            image.Negativ(2);
+            image.Brightness(3, 10);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if (temp1 != temp2)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestBrightnessNNegativeNoComingBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Brightness(0, 10);
+            image.Negativ(1);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if ((temp2.R - temp1.R) != 245)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestBrightnessNContrastBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Brightness(0, 10);
+            image.Contrast(1, 127);
+            image.Contrast(2, 127);
+            image.Brightness(3, -10);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if (temp1 != temp2)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestBrightnessNContrastNoComingBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Brightness(0, 10);
+            image.Contrast(1, 0);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if ((temp2.R - temp1.R) != 9)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestContrastNNegativeNoComingBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Contrast(0, 0);
+            image.Negativ(1);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if ((temp2.R - temp1.R) != 255)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestContrastNNegativeBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Contrast(0, 0);
+            image.Negativ(1);
+            image.Negativ(2);
+            image.Contrast(3, 0);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if (temp1 != temp2)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestContrastNNegativeNoChangeBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Contrast(0, 127);
+            image.Negativ(1);
+            image.Negativ(2);
+            image.Contrast(3, 127);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if (temp1 != temp2)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestContrastNNegativeNBrightnessNoChangeBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Contrast(0, 127);
+            image.Negativ(1);
+            image.Brightness(2,0);
+            image.Brightness(3, 0);
+            image.Negativ(4);
+            image.Contrast(5, 127);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if (temp1 != temp2)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestContrastNNegativeNBrightnessNoComingBack()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Contrast(0, 127);
+            image.Negativ(1);
+            image.Brightness(2, -20);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if ((temp2.R - temp1.R) != 235)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
+            Assert.AreEqual(equ, true);
+        }
+
+        [Test]
+        public void TestContrastNNegativeNBrightnessNoChange()
+        {
+            ProgramImage image = new ProgramImage();
+            Bitmap map = new Bitmap(800, 600);
+            for (int I = 0; I < 800; I++)
+                for (int J = 0; J < 600; J++)
+                    map.SetPixel(I, J, Color.Black);
+            image.AddNewImage(map);
+            image.Contrast(0, 127);
+            image.Negativ(1);
+            image.Brightness(2, 0);
+            Bitmap res = image.GetLastBitmap();
+            bool equ = true;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if ((temp2.R - temp1.R) != 255)
                     {
                         equ = false;
                         break;

@@ -426,33 +426,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return 0;
         }
 
-        /*public int Contrast(int indexmap, int n)
-        {
-            int i, j;
-            if (indexmap < 0 || indexmap > PixelMapList.Count || PixelMapList.Count == 0)
-            {
-                return -1;
-            }
-            int height = 0;
-            int width = 0;
-            Bitmap newmap = CreateNewMapForMap(indexmap, ref height, ref width);
-            if (newmap == null)
-                return -1;
-            for (i = 0; i < width; i++)
-            {
-                for (j = 0; j < height; j++)
-                {
-                    int r = 0, g = 0, b = 0;
-                    GetRGB(newmap, i, j, ref r, ref g, ref b);
-                    r = ContrastPixel(r, n);
-                    g = ContrastPixel(r, n);
-                    b = ContrastPixel(r, n);
-                    newmap.SetPixel(i, j, Color.FromArgb(r, g, b));
-                }
-            }
-            PixelMapList.Add(newmap);
-            return 0;
-        }*/
         public int Brightness(int indexmap, int n)
         {
             int i, j;
@@ -474,6 +447,13 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     r = r + n;
                     g = g + n;
                     b = b + n;
+                    if (r > 255) r = 255;
+                    if (g > 255) g = 255;
+                    if (b > 255) b = 255;
+
+                    if (r < 0) r = 0;
+                    if (g < 0) g = 0;
+                    if (b < 0) b = 0;
                     newmap.SetPixel(i, j, Color.FromArgb(r, g, b));
                 }
             }
