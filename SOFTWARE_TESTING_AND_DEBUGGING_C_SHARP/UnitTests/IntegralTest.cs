@@ -296,7 +296,6 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
                         map.SetPixel(I, J, Color.White);
                     else
                         map.SetPixel(I, J, Color.Black);
-
             image.AddNewImage(map);
             image.MethodOtsu(0);
             Particle[] part = null;
