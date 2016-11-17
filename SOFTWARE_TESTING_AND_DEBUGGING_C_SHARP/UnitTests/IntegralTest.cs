@@ -315,21 +315,27 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             Bitmap map = new Bitmap(800, 600);
             for (int I = 0; I < 800; I++)
                 for (int J = 0; J < 600; J++)
-                    if (I < 375 && I > 425 && J < 275 && J > 325)
-                        map.SetPixel(I, J, Color.White);
-                    else
-                        map.SetPixel(I, J, Color.Black);
+                    map.SetPixel(I, J, Color.White);
             image.AddNewImage(map);
-            image.Contrast(0, 100);
-            Bitmap lastmap = image.GetLastBitmap();
-            image.Negativ(lastmap);
-            Particle[] part = null;
-            calc.AllCalculations(ref part, 2);
+            image.Contrast(0, 0);
+            image.Negativ(1);
+            Bitmap res = image.GetLastBitmap();
             bool equ = true;
-            if (part != null && part.Length == 1)
-                equ = true;
-            else
-                equ = false;
+            for (int I = 0; I < map.Width; I++)
+            {
+                for (int J = 0; J < map.Height; J++)
+                {
+                    Color temp1 = map.GetPixel(I, J);
+                    Color temp2 = res.GetPixel(I, J);
+                    if (temp1 != temp2)
+                    {
+                        equ = false;
+                        break;
+                    }
+                }
+                if (!equ)
+                    break;
+            }
             Assert.AreEqual(equ, true);
         }
     }

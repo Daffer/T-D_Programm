@@ -124,7 +124,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             int height = 0;
             int width = 0;
-            Bitmap newmap = CreateNewMapForMap(index, ref height, ref width);
+            Bitmap img = CreateNewMapForMap(index, ref height, ref width);
             for (i = 0; i < img.Width; i++)
             {
                 for (j = 0; j < img.Height; j++)
@@ -137,7 +137,8 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     img.SetPixel(i, j, Color.FromArgb(r, g, b));
                 }
             }
-            return;
+            PixelMapList.Add(img);
+            return 0;
         }
         //  вспомогательная функция корректировки компонента цвета
         public int ExtremateColor(int source, int changeval)
