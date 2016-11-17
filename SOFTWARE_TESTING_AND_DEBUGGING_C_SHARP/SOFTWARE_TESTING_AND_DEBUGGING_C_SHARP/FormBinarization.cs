@@ -26,7 +26,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
 
-        private void AutoBinarizationButton_Click(object sender, EventArgs e)
+        public void AutoBinarizationButton_Click(object sender, EventArgs e)
         {
             int activeimage = ReferenceToMainForm.IndexActiviteForm;
             int error = ReferenceToProgramImage.MethodOtsu(activeimage);

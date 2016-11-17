@@ -94,7 +94,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             int height = 0;
             int width = 0;
-            Bitmap newmap = CreateMapForLastMap(index, ref height, ref width);
+            Bitmap newmap = CreateNewMapForMap(index, ref height, ref width);
             if (newmap == null)
                 return -1;
             for (j = 0; j < height; j++)
@@ -194,7 +194,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             int height = 0;
             int width = 0;
-            Bitmap newmap = CreateMapForLastMap(indexmap, ref height, ref width);
+            Bitmap newmap = CreateNewMapForMap(indexmap, ref height, ref width);
             if (newmap == null)
                 return -1;
             for (i = 0; i < width; i++)
@@ -355,7 +355,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             }
             int height = 0;
             int width = 0;
-            Bitmap newmap = CreateMapForLastMap(index, ref height, ref width);
+            Bitmap newmap = CreateNewMapForMap(index, ref height, ref width);
             if (newmap == null)
                 return -1;
             int[] p = new int[256];// ?
@@ -419,7 +419,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         }
         public int Brightness(int index, int n)
         {
-            return -1;
+            return 0;
         }
         public List<Bitmap> GetBitmapList()
         {
@@ -432,7 +432,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
         private List<Bitmap> PixelMapList;
         public Bitmap GetLastBitmap()
         {
-            return GetBitmap(PixelMapList.Count);
+            return GetBitmap(PixelMapList.Count - 1);
         }
         public int GetCountImages()
         {
@@ -449,7 +449,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             PixelMapList.Add(newmap);
             return;
         }
-        private Bitmap CreateMapForLastMap(int index, ref int height, ref int width)
+        private Bitmap CreateNewMapForMap(int index, ref int height, ref int width)
         {
             if (index < 0 || index > PixelMapList.Count || PixelMapList.Count == 0)
             {

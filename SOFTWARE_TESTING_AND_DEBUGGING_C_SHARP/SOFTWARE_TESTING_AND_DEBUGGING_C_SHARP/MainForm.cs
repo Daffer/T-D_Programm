@@ -18,15 +18,15 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             Calc =  new Calculater(this.Images);
         }
 
-        private void BrightnessNContrastToolStripMenuItem_Click(object sender, EventArgs e)
+        public void BrightnessNContrastToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormBrightness setting = new FormBrightness(Images,this);
             setting.Show();
             setting.Focus();
             return;
         }
-        private ProgramImage Images = new ProgramImage();
-        private Calculater Calc;
+        public ProgramImage Images = new ProgramImage();
+        public Calculater Calc;
         public int IndexActiviteForm
         {
             get { return IndexActiviteFormImage; }
@@ -39,7 +39,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
 
-        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        public void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog system = new OpenFileDialog();
             system.ShowDialog();

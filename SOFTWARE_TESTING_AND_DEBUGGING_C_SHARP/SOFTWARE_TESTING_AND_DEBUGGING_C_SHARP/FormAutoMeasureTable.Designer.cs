@@ -84,7 +84,7 @@
 
         #endregion
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView ParticlesInfoDataGridView;
         private System.Windows.Forms.Button SaveToExcelButton;
+        public System.Windows.Forms.DataGridView ParticlesInfoDataGridView;
     }
 }

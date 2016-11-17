@@ -18,7 +18,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             IndexToList = index;
             ReferenceToMainForm = reference;
             Rectangle rec = new Rectangle(0, 0, currentmap.Width, currentmap.Height);
-            this.PictureBox.DrawToBitmap(currentmap, rec);
+            this.PictureBox.BackgroundImage = currentmap;
         }
         private int IndexToList = 0;
         private MainForm ReferenceToMainForm;

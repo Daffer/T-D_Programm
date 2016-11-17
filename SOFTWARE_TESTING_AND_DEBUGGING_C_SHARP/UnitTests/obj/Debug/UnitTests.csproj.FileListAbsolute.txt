@@ -23,3 +23,16 @@ C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\Micro
 C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.dll
 C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.pdb
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\NSubstitute.dll
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\NUnitForms.dll
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.exe
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.pdb
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\NSubstitute.xml
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.pdb

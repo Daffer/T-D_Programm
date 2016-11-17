@@ -24,7 +24,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return;
         }
         //  Подсчет площади выделенной зоны
-        private int SquareCalculate(int x, int y, int num, int[,] matrix, int h, int w)
+        public int SquareCalculate(int x, int y, int num, int[,] matrix, int h, int w)
         {
             if (h < 0 || w < 0)
                 return -1;              // Ошибка входных данных
@@ -93,7 +93,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return false;
         }
         //  Подсчет периметра
-        private int Perimetr(int[,] matrix,int num, int h, int w)
+        public int Perimetr(int[,] matrix,int num, int h, int w)
         {
             int result = 0;
             int count = 0;
@@ -129,7 +129,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             result = Convert.ToInt32(count_bor + Convert.ToDouble(count * 0.2071));
             return result;
         }
-        private int MakeCart(Bitmap map,ref int[,] matrix)
+        public int MakeCart(Bitmap map,ref int[,] matrix)
         {
             if (map == null || matrix == null)
                 return - 1;
@@ -151,7 +151,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return nom;
         }
 
-        private void CalculateWidth(int h, int w, int[,] matrix, int num, ref Particle[] particles)
+        public void CalculateWidth(int h, int w, int[,] matrix, int num, ref Particle[] particles)
         {
             for (int i = 2; i <= num; i++)
                 particles[i - 2].Width = h * w;

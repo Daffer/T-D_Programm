@@ -37,7 +37,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             
         }
 
-        private void SubmitButton_Click(object sender, EventArgs e)
+        public void SubmitButton_Click(object sender, EventArgs e)
         {
             int currentcontrastvalue = this.ContrastTrackBar.Value;
             int currentbrightnessvalue = this.BrightnessTrackBar.Value;
@@ -55,11 +55,11 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
                     result.Focus();
                 }
             }
-            this.Dispose();
+            //this.Dispose();
             return;
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
+        public void CancelButton_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
