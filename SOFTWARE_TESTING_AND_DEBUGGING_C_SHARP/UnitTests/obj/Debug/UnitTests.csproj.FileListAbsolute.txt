@@ -36,3 +36,4 @@ C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
 C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\NSubstitute.xml
 C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\nunit.framework.xml
 C:\Users\Pavel\Documents\Git\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\obj\Debug\UnitTests.pdb
+C:\T-D_Programm\SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP\UnitTests\bin\Debug\NUnitForms.dll
