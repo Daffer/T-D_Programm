@@ -11,7 +11,7 @@ using System.Drawing;
 
 namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
 {
-    [TestFixture]
+   /* [TestFixture]
     public class IntegralTest
     {
         public delegate int Method(int indexmap, int value);
@@ -696,5 +696,5 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP.UnitTests
             }
             Assert.AreEqual(equ, true);
         }
-    }
+    }*/
 }

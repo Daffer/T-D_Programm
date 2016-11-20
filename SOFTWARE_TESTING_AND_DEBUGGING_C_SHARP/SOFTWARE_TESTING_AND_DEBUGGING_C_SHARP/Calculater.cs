@@ -76,7 +76,7 @@ namespace SOFTWARE_TESTING_AND_DEBUGGING_C_SHARP
             return square;
         }
         //  Вспомогательная функция определяющая границу изображения
-        private bool IsBorder(int[,] a, int I, int J, int h, int w)
+        public bool IsBorder(int[,] a, int I, int J, int h, int w)
         {
             if (I > w || I < 0 || J < 0 || J > h)
                 return false;
