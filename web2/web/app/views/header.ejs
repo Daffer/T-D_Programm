@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title><%- title %></title>
+  
+  <% if (ENV_DEVELOPMENT) { %>
+    <script src="http://localhost:35729/livereload.js"></script>
+  <% } %>
+</head>
+<body>
+<link rel="stylesheet" href="/css/header.css">
+  <nav class = "menu">
+    <div class = "user_mode">
+        <ul class = "user_authorization">
+          <li class = "authorization_lb">
+            <a class = "user_ref" href = "/login">
+              <p>Вход</p>
+            </a>
+          </li>
+          <li class = "authorization_lb">
+            <a class = "user_ref" href = "/reg">
+              <p>Регистрация</p>
+            </a>
+          </li>
+        </ul>
+    </div>
+    <div class = "container">
+      <div class = "block-logo">
+        <a href = "/">
+          <img class = "logotype" src = "img/logo.png" alt = "QuickRentCar">
+        </a>
+      </div>
+      <ul class = "contenthead">
+        <li class = "goto">
+          <a class = "main_ref" href = "#ref_about">
+            <h1>О нас</h1>
+          </a>
+        </li>
+        <li class = "goto">
+          <a class = "main_ref" href = "ref_comment">
+            <h1>Отзывы</h1>
+          </a>
+        </li>
+      </ul>
+    </div>  
+  </nav>
+  <div class = "indent">
+  </div>
+  

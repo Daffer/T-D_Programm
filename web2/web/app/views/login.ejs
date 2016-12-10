@@ -1,0 +1,27 @@
+<% include header %>
+
+  <div>
+    <link rel="stylesheet" href="/css/authentication.css">
+    <h1>Вход</h1>
+    <% if (logined == false) { %>
+        <form name = "logform" class = "VerifyLP" method = "post" id = "logform" action = "/login"> 
+            <div class = "lgn_field">
+                <h1 class = "label_h">Логин:</h1>
+                <div class = "login_div">
+                    <input id = "login" name = "login" class = "input_text" type = "text" maxlength=255 value = <%- log %> />
+                </div>
+            </div>
+            <div class = "pwd_field">
+                <h1 class = "label_h">Пароль:</h1>
+                <div class = "pwd_div">
+                    <input id = "password" name = "password" class = "pwd_text" type = "password"  value = <%- pwd %> />
+                </div>
+            </div>
+            <div class = "submit_field">
+                <input id = "Authentication" class = "Authentication" type = "submit" value = "Войти" />    
+            </div>
+        </form>
+    <% } %>
+  </div>
+
+<% include footer %>

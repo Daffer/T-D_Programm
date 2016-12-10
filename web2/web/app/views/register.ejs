@@ -1,0 +1,101 @@
+<% include header %>
+
+    <div>
+    <link rel="stylesheet" href="/css/registration.css">
+    <h1>Регистрация</h1>
+        <form name = "regform" class = "reg" method = "post" id = "regform" action = "/reg"> 
+            <div class = "public_field">
+                <h1 class = "label_h">Имя*:</h1>
+                <div class = "needed_info">
+                    <input id = "FirstName" name = "FirstName" class = "input_text" type = "text" maxlength=255/>
+                </div>
+                <% if (!correctname) { %>
+                    <p class = "incorrect_data">Введите данные</p>
+                <% } %>
+            </div>
+            <div class = "public_field">
+                <h1 class = "label_h">Фамилия*:</h1>
+                <div class = "needed_info">
+                    <input id = "SurName" name = "SurName" class = "input_text" type = "text" maxlength=255/>
+                </div>
+                <% if (!correctsurname) { %>
+                    <p class = "incorrect_data">Введите данные</p>
+                <% } %>
+            </div>
+            <div class = "public_field">
+                <h1 class = "label_h">Отчество:</h1>
+                <div class = "more_info">
+                    <input id = "SecondName" name = "SecondName" class = "input_text" type = "text" maxlength=255/>
+                </div>
+            </div>
+            <div class = "public_field">
+                <h1 class = "label_h">Логин*:</h1>
+                <div class = "needed_info">
+                    <input id = "login" name = "login" class = "input_text" type = "text" maxlength=255/>
+                </div>
+                <% if (correctlog == 1) { %>
+                    <p class = "incorrect_data">Введите данные</p>
+                <% }else if(correctlog == 2){ %>
+                    <p class = "incorrect_data">Данный логин занят, выберите другой</p>
+                <% } %>
+            </div>
+            <div class = "public_field">
+                <h1 class = "label_h">Пол*:</h1>
+                <div class = "needed_info">
+                    <select size = 1 single name="Sex" required>
+                        <option selected = "selected" disabled>Выберите пол</option>
+                        <option value = "Male">Мужчина</option>
+                        <option value = "Female">Женщина</option>
+                    </select>
+                </div>
+                <% if (!correctsex) { %>
+                    <p class = "incorrect_data">Введите данные</p>
+                <% } %>
+            </div>
+            <div class = "pwd_field">
+                <h1 class = "label_h">Пароль:</h1>
+                <div class = "pwd_div">
+                    <input id = "mainpassword" name = "mainpassword" class = "pwd_text" type = "password" />
+                </div>
+                <% if (!correctpwd) { %>
+                    <p class = "incorrect_data">Введите данные</p>
+                <% } %>
+            </div>
+            <div class = "pwd_field">
+                <h1 class = "label_h">Повторите пароль:</h1>
+                <div class = "pwd_div">
+                    <input id = "verpassword" name = "verpassword" class = "pwd_text" type = "password" />
+                </div>
+                <% if (!correctpwd) { %>
+                    <p class = "incorrect_data">Введите данные</p>
+                <% } %>
+            </div>
+            <div class = "date_field">
+                <h1 class = "label_h">Дата рождения:</h1>
+                <div class = "date_div">
+                    <input id = "day" name = "day" class = "day_input" type = "number" />
+                    <select size = 1 single name="mounth">
+                        <option selected = "selected" disabled>Выберите месяц</option>
+                        <option value = "1">Январь</option>
+                        <option value = "2">Февраль</option>
+                        <option value = "3">Март</option>
+                        <option value = "4">Апрель</option>
+                        <option value = "5">Май</option>
+                        <option value = "6">Июнь</option>
+                        <option value = "7">Июль</option>
+                        <option value = "8">Август</option>
+                        <option value = "9">Сентябрь</option>
+                        <option value = "10">Октябрь</option>
+                        <option value = "11">Ноябрь</option>
+                        <option value = "12">Декабрь</option>
+                    </select>
+                    <input id = "year" name = "year" class = "year_input" type = "number" />
+                </div>
+            </div>
+            <div class = "submit_field">
+                <input id = "Authentication" class = "Authentication" type = "submit" value = "Войти" />    
+            </div>
+        </form>
+  </div>
+
+<% include footer %>
