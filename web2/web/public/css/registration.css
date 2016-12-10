@@ -1,0 +1,51 @@
+.needed_info {
+  font-size: 20px;
+  text-align: left;
+  display: inline-block;
+  color: red;
+}
+.incorrect_data {
+  color: red;
+  font-size: 21px;
+  font-weight: 600;
+  display: inline-block;
+}
+.day_input {
+  width: 50px;
+}
+.year_input {
+  width: 70px;
+}
+.more_info {
+  width: 200px;
+  font-size: 20px;
+  text-align: left;
+  display: inline-block;
+}
+.public_field {
+  width: 100%;
+  vertical-align: baseline;
+  margin: 3px;
+}
+.label_h {
+  font-size: 16px;
+  text-align: right;
+  margin: 0;
+  width: 150px;
+  display: inline-block;
+}
+.pwd_field {
+  width: 100%;
+  vertical-align: baseline;
+  margin: 3px;
+}
+.pwd_div {
+  font-size: 20px;
+  text-align: left;
+  display: inline-block;
+}
+.date_div {
+  font-size: 20px;
+  text-align: left;
+  display: inline-block;
+}
