@@ -7,10 +7,11 @@ var UserSchema = new Schema({
   SurName: String,      // Фамилия
   SecondName: String,   // Отчество
   Sex: String,          // Пол
-  DateOfBirth: Date,    // Дата рождения
+  DateOfBirth: String,    // Дата рождения
   Login: String,        // Login
   Password: String,     // Password
-  Discount: Number      // Скидка
+  Discount: Number,     // Скидка
+  Role: String          // Роль(User,Admin)
 });
 
 UserSchema.methods.checkLogin = new function(lgn)

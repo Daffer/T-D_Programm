@@ -1,0 +1,37 @@
+<% include header %>
+
+    <div>
+        <link rel="stylesheet" href="/css/admintools.css">
+        <h1>Страница админа</h1>
+        <table>
+            <caption>Таблица пользователей</caption>
+            <tr>
+                <td>ID</td>
+                <td>FirstName</td>
+                <td>SirName</td>
+                <td>SecondName</td>
+                <td>Sex</td>
+                <td>DateOfBirth</td>
+                <td>Login</td>
+                <td>Password</td>
+                <td>Discount</td>
+                <td>Role</td>
+            <tr>
+            <% for (i=0; i < users.length; i++) { %>
+                <tr>
+                    <th><%= users[i].ID %></th>
+                    <th><%= users[i].FirstName %></th>
+                    <th><%= users[i].SurName %></th>
+                    <th><%= users[i].SecondName %></th>
+                    <th><%= users[i].Sex %></th>
+                    <th><%= users[i].DateOfBirth %></th>
+                    <th><%= users[i].Login %></th>
+                    <th><%= users[i].Password %></th>
+                    <th><%= users[i].Discount %></th>
+                    <th><%= users[i].Role %></th>
+                <tr>
+            <% } %>
+        </table>
+    </div>
+
+<% include footer %>

@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CarSchema = new Schema({
-  ID: Number,
-  Producer: String,
-  Type: String,
-  CreationYear: Date,
-  PricePerHour: Number
+  ID: Number,           // ID
+  Producer: String,     // Производитель
+  Type: String,         // Тип машины
+  CreationYear: Date,   // Дата производства
+  PricePerHour: Number  // Стоимость аренды в час
 });
 
 CarSchema.methods.price = new function(counthour)

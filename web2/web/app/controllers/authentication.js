@@ -25,10 +25,30 @@ router.post('/login',function(req,res,next)
     var pwd = req.body.password;
     var result = undefined;
     Users.find({login: log, password:pwd}, result);
-    if (result == undefined)
+    result = {
+        FirstName: 'Vasya',
+        LastName: 'Pupkin',
+        Role: 'Admin'
+    }
+    console.log(log + pwd + result);
+    switch (result.Role) {
+        case ('User'):
+            res.redirect('/');
+            break;
+        case ('Admin'):
+            res.redirect('/admintools');
+            break;
+        case (undefined):
+            console.log('undefined error');
+            break;
+        default:
+            console.log('exception');
+            break;
+    }
+    /*if (result == undefined)
     {
         console.log(result);
         res.redirect('/login');
-    }
+    }*/
     res.redirect('/');
 });
