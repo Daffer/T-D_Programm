@@ -1,9 +1,13 @@
 nav {
-  height: 120px;
+  height: 100px;
   position: relative;
   top: 0;
   right: 0;
   left: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
 }
 p {
   margin: 0;
@@ -30,9 +34,10 @@ li {
 .container {
   background-image: url(../img/background-logo.png);
   width: 100%;
-  position: fixed;
+  position: absolute;
+  z-index: 50;
   margin: 0;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 .logotype {
   vertical-align: middle;
@@ -46,14 +51,15 @@ li {
   width: 300px;
 }
 .indent {
-  height: 120px;
+  height: 100px;
 }
 .user_mode {
-  height: 18px;
-  margin: 2px;
+  background-image: url(../img/background-usermode.png);
+  height: 20px;
+  margin: 0px;
   width: 100%;
-  top: 0;
-  position: relative;
+  z-index: 51;
+  position: absolute;
 }
 .user_authorization {
   padding: 0px;

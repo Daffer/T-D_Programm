@@ -6,37 +6,16 @@ var UserSchema = new Schema({
   SurName: String,      // Фамилия
   SecondName: String,   // Отчество
   Sex: String,          // Пол
-  DateOfBirth: String,    // Дата рождения
+  DateOfBirth: Date,    // Дата рождения
   Login: String,        // Login
   Password: String,     // Password
   Discount: Number,     // Скидка
-  Role: String          // Роль(User,Admin)
+  Role: String          // Роль
 });
-
-UserSchema.methods.checkLogin = new function(lgn)
-{
-    if (lgn == this.Login)
-        return true;
-    else
-        return false;
-}
 
 UserSchema.methods.addDiscount = new function(addedpart)
 {
     this.Discount += this.Discount*addedpart; 
-}
-
-UserSchema.methods.checkPWD = new function(pwd)
-{
-    if (pwd == this.Password)
-        return true;
-    else
-        return false;
-}
-
-UserSchema.methods.getPassword = new function()
-{
-    return this.Password;
 }
 
 UserSchema.methods.refresheDiscount = new function(price)

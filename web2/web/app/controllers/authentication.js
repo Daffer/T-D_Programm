@@ -4,18 +4,25 @@ var mongoose = require('mongoose');
 var Users = mongoose.model('User');
 
 var logined = false;
+var checked = true;
 module.exports = function (app) 
 {
   app.use('/', router);
 };
 
 router.get('/login', function (req, res, next) {
-    res.render('login', {
-      title: 'logined',
-      logined: logined,
-      log: req.cookies["login"],
-      pwd: req.cookies["password"]
-    });
+    if (!logined)
+    {
+        res.render('login', {
+        title: 'logined',
+        logined: logined,
+        check: checked,
+        log: req.cookies["login"],
+        pwd: req.cookies["password"]
+        });
+    }
+    else
+        res.redirect("/");
 });
 
 router.post('/login',function(req,res,next)
@@ -23,32 +30,52 @@ router.post('/login',function(req,res,next)
     console.log("get post");
     var log = req.body.login;
     var pwd = req.body.password;
-    var result = undefined;
-    Users.find({login: log, password:pwd}, result);
-    result = {
-        FirstName: 'Vasya',
-        LastName: 'Pupkin',
-        Role: 'Admin'
-    }
-    console.log(log + pwd + result);
-    switch (result.Role) {
-        case ('User'):
-            res.redirect('/');
-            break;
-        case ('Admin'):
-            res.redirect('/admintools');
-            break;
-        case (undefined):
-            console.log('undefined error');
-            break;
-        default:
-            console.log('exception');
-            break;
-    }
-    /*if (result == undefined)
+    console.log(log + " " + pwd);
+    Users.findOne({Login: log}, function(err, user)
     {
-        console.log(result);
-        res.redirect('/login');
-    }*/
-    res.redirect('/');
+        if (err)
+        {
+            console.log("erorr");
+            return next(err);
+        }
+        else if (user == undefined || user == null)
+        {
+            console.log("not found");
+            res.redirect('/login');
+        }
+        else if (user.Password == pwd && user.Login == log)
+        {
+            console.log("exist user");
+            console.log(user);
+            switch (user.Role) 
+            {
+                case 'user':
+                case 'User':
+                    console.log('User');
+                    res.redirect('/');
+                    break;
+                case 'admin':
+                case 'Admin':
+                    console.log("admin");
+                    res.redirect('/admintools');
+                    break;
+                case undefined:
+                    console.log('undefined error');
+                    checked = false;
+                    res.redirect("/login");
+                    break;
+                default:
+                    console.log('exception');
+                    checked = false;
+                    res.redirect("/login");
+                    break;
+            }
+        }
+        else
+        {
+            console.log("relog");
+            checked = false;
+            res.redirect("/login");
+        }
+    });
 });

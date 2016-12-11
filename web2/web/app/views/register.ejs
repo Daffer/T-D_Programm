@@ -31,7 +31,7 @@
             <div class = "public_field">
                 <h1 class = "label_h">Логин*:</h1>
                 <div class = "needed_info">
-                    <input id = "login" name = "login" class = "input_text" type = "text" maxlength=255/>
+                    <input id = "Login" name = "Login" class = "input_text" type = "text" maxlength=255/>
                 </div>
                 <% if (correctlog == 1) { %>
                     <p class = "incorrect_data">Введите данные</p>
@@ -57,7 +57,7 @@
                 <div class = "pwd_div">
                     <input id = "mainpassword" name = "mainpassword" class = "pwd_text" type = "password" />
                 </div>
-                <% if (!correctpwd) { %>
+                <% if (correctpwd != 0) { %>
                     <p class = "incorrect_data">Введите данные</p>
                 <% } %>
             </div>
@@ -66,30 +66,14 @@
                 <div class = "pwd_div">
                     <input id = "verpassword" name = "verpassword" class = "pwd_text" type = "password" />
                 </div>
-                <% if (!correctpwd) { %>
+                <% if (correctpwd != 0) { %>
                     <p class = "incorrect_data">Введите данные</p>
                 <% } %>
             </div>
             <div class = "date_field">
                 <h1 class = "label_h">Дата рождения:</h1>
                 <div class = "date_div">
-                    <input id = "day" name = "day" class = "day_input" type = "number" />
-                    <select size = 1 single name="mounth">
-                        <option selected = "selected" disabled>Выберите месяц</option>
-                        <option value = "1">Январь</option>
-                        <option value = "2">Февраль</option>
-                        <option value = "3">Март</option>
-                        <option value = "4">Апрель</option>
-                        <option value = "5">Май</option>
-                        <option value = "6">Июнь</option>
-                        <option value = "7">Июль</option>
-                        <option value = "8">Август</option>
-                        <option value = "9">Сентябрь</option>
-                        <option value = "10">Октябрь</option>
-                        <option value = "11">Ноябрь</option>
-                        <option value = "12">Декабрь</option>
-                    </select>
-                    <input id = "year" name = "year" class = "year_input" type = "number" />
+                    <input id = "date" name = "date" class = "date_input" type = "date" />
                 </div>
             </div>
             <div class = "submit_field">

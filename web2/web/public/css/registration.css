@@ -10,11 +10,8 @@
   font-weight: 600;
   display: inline-block;
 }
-.day_input {
-  width: 50px;
-}
-.year_input {
-  width: 70px;
+.date_input {
+  width: 200px;
 }
 .more_info {
   width: 200px;
