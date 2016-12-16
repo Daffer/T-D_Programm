@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 var Users = mongoose.model('User');
 var UserManager = require('../models/userstools');
 
-var logined = false;
 module.exports = function (app) 
 {
   app.use('/', router);
@@ -26,13 +25,18 @@ var clear = function()
 }
 
 router.get('/reg', function (req, res, next) {
+    if (req.session.IsAuthorized == true)
+        res.redirect("/");
     res.render('register', {
       title: 'registration',
       correctname: currentstatename,
       correctsurname: currentstatesurname,
       correctsex: currentstatesex,
       correctpwd: currentstatepwd,
-      correctlog: currentstatelogin
+      correctlog: currentstatelogin,
+      logined: false,
+      role: "ghost",
+      name: "error"
     });
 });
 
@@ -105,6 +109,9 @@ router.post('/reg',function(req,res,next)
                     Discount: 0,
                     Role: "User"
                 });
+                req.session.UserName = name;
+                req.session.IsAuthorized = true;
+                req.session.UserRole = "User";
                 console.log("save");
                 UserManager.AddUser(user);
                 console.log("cookie");

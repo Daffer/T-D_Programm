@@ -3,7 +3,6 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Users = mongoose.model('User');
 
-var logined = false;
 var checked = true;
 module.exports = function (app) 
 {
@@ -11,18 +10,17 @@ module.exports = function (app)
 };
 
 router.get('/login', function (req, res, next) {
-    if (!logined)
-    {
-        res.render('login', {
+    if (req.session.IsAuthorized == true)
+        res.redirect("/");
+    res.render('login', {
         title: 'logined',
-        logined: logined,
         check: checked,
         log: req.cookies["login"],
-        pwd: req.cookies["password"]
-        });
-    }
-    else
-        res.redirect("/");
+        pwd: req.cookies["password"],
+        name: "error",
+        logined: false,
+        role: false
+    });
 });
 
 router.post('/login',function(req,res,next)
@@ -52,11 +50,17 @@ router.post('/login',function(req,res,next)
                 case 'user':
                 case 'User':
                     console.log('User');
+                    req.session.IsAuthorized = true;
+                    req.session.UserRole = user.Role;
+                    req.session.UserName = user.FirstName;
                     res.redirect('/');
                     break;
                 case 'admin':
                 case 'Admin':
-                    console.log("admin");
+                    console.log("Admin");
+                    req.session.IsAuthorized = true;
+                    req.session.UserRole = user.Role;
+                    req.session.UserName = user.FirstName;
                     res.redirect('/admintools');
                     break;
                 case undefined:

@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
+var session = require('express-session');
 var methodOverride = require('method-override');
 
 module.exports = function(app, config) {
@@ -26,6 +27,10 @@ module.exports = function(app, config) {
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
+  app.use(session({
+    key: "THIS_KEY",
+    secret: "MY_SECRET"
+  }));
 
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {

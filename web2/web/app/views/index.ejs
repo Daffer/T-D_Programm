@@ -1,5 +1,76 @@
 <% include header %>
 
-  <p>ТЕСТ</p>
+  <div class = "main">
+    <link rel="stylesheet" href="/css/main.css">
+    <div class = "image_block">
+      <img class = "mainimage" src = "img/mainprint2.jpg" alt = "QuickRentCar">
+    </div>
+    <div class = "logical_block" id = "ref_about">
+        <div class = "part_title">
+          <h1>О компании</h1>
+        </div>
+        <div>
+          <h1></h1>
+          <div class = "block_greeting_text">
+            <span class = "greeting_text">
+              <span class = "letter">К</span>омпания «QuickRentCar» предоставляет автомобили любого класса в прокат без водителя. 
+              Наша фирма готова предложить персональный подход для каждого клиента и цены, способные удовлетворить любого заказчика. 
+              Стоимость услуг может меняться в зависимости от марки автомобиля, времени его использования
+              в прокате и других факторов. 
+            </span>
+            <span class = "greeting_text">
+              <span class = "letter">К</span>омпания «QuickRentCar» отличается высоким профессионализмом и надежностью, которые по достоинству оценили уже многие клиенты. 
+              Зачастую, новые заказчики приходят к нам по рекомендации постоянных клиентов нашей фирмы.
+              В настоящий момент мы можем предложить свои услуги проката автомобилей любого класса по Москве и Московской области, 
+              как частным лицам, так и компаниям различного уровня. 
+              Наша фирма учитывает интересы самых различных клиентов и предлагает достаточно низкие цены и удобные тарифы.
+            </span>
+            <span class = "greeting_text">
+              <span class = "letter">В</span> автопарке нашей компании представлен широкий ряд автомобилей от недорогих отечественных вариантов ВАЗ 2105 и ВАЗ 2107 до машин представительского класса Mercedes-Benz W210, 
+              Kia Rio A/T, Honda Accord 8 и другие. Наши машины оснащены необходимым комплектом колес в зависимости от времени года и современными аудиосистемами. 
+              Кроме того, в стоимость проката автомобиля уже включены страховка ОСАГО и различные расходные материалы: масло, свечи и т.п. 
+              В интересах наших клиентов мы дополнительно предоставляем полный пакет документов, подтверждающих затраты на прокат автомобиля для предоставления в налоговые службы.
+            </span>
+            <span class = "greeting_text">
+              <span class = "letter">Н</span>аша компания предлагает автомобили в отличном состоянии: идеально чистые, прошедшие все необходимое техническое обслуживание. 
+              С нашими машинами любая поездка будет безопасной и приятной. Приоритетными направлениями предоставления транспорта в Подмосковье являются города: Щелково, Королев, Юбилейный, Мытищи, Пушкино, Ивантеевка и др.
+            </span>
+          </div>
+        </div>
+      </div>
+    <div id = "ref_comment">
+      <script src="/js/comment.js"/></script>
+      <div  class = "logical_block">
+        <h1 class = "part_title">Отзывы</h1>
+        <div class = "comment_header">
+          <h1 class = "comment_title"><%- comment.title %></h1>
+        </div>
+        <div class = "comment_container">
+          <div class = "button_field">
+            <button id = "7" name = "left" class = "scroll_comment">
+              <img class = "arrow" src = "img/left-arrow2.jpg">
+            </button>
+          </div>
+          <div class = "comment_content">
+            <p class = "comment_text"><%= comment.text %></p>
+            <img class = "comment_image" src = <%- comment.image %> >
+          </div>
+          <div class = "button_field">
+            <button id = "1" name = "rigth" class = "scroll_comment">
+              <img class = "arrow" src = "img/rigth-arrow2.jpg">
+            </button>
+          </div>
+        </div>
+        <div class = "comment_scroll">
+            <ul class = "index_comment">
+              <% for (var I = 0; I< count; I++) {%>
+                <li class = "comment_id">
+                  <button namd = "changer_comment_point" id = <%= I %> class="change_comment"></button>
+                </li>
+              <% } %>
+            </ul>
+          </div>
+      </div>    
+  </div>
   
 <% include footer %>

@@ -4,27 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title><%- title %></title>
-  
+  <script src="/components/jquery/dist/jquery.js"></script>
   <% if (ENV_DEVELOPMENT) { %>
     <script src="http://localhost:35729/livereload.js"></script>
   <% } %>
 </head>
 <body>
 <link rel="stylesheet" href="/css/header.css">
-  <nav class = "menu">
+  <nav class = "menu"> 
     <div class = "user_mode">
+      <% if (!logined) { %>
         <ul class = "user_authorization">
-          <li class = "authorization_lb">
+          <li class = "menu_label">
             <a class = "user_ref" href = "/login">
               <p>Вход</p>
             </a>
           </li>
-          <li class = "authorization_lb">
+          <li class = "menu_label">
             <a class = "user_ref" href = "/reg">
               <p>Регистрация</p>
             </a>
           </li>
         </ul>
+      <% } else { %>
+        <p class = "greeting">Здраствуйте <%= name %> </p>
+        <ul class = "user_operations">
+          <% if (role == "Admin") { %>
+          <li class = "menu_label">
+            <a class = "user_ref" href = "/admintools">
+              <p>Инструменты</p>
+            </a>
+          </li>
+          <% } %>
+          <li class = "menu_label">
+            <form class = "user_ref" method = "post" action = "/">
+              <input id = "Exit" class = "exit" type = "submit" value = "Выйти"/>
+            </form>
+        </ul>
+      <% } %>
     </div>
     <div class = "container">
       <div class = "block-logo">
@@ -41,6 +58,11 @@
         <li class = "goto">
           <a class = "main_ref" href = "/#ref_comment">
             <h1>Отзывы</h1>
+          </a>
+        </li>
+        <li class = "goto">
+          <a class = "main_ref" href = "/#ref_contact">
+            <h1>Контакты</h1>
           </a>
         </li>
       </ul>

@@ -1,13 +1,7 @@
-nav {
-  height: 100px;
-  position: relative;
-  top: 0;
-  right: 0;
-  left: 0;
-}
 body {
-  padding: 0;
-  margin: 0;
+  min-width: 1000px;
+  padding: 0px;
+  margin: 0px;
 }
 p {
   margin: 0;
@@ -19,38 +13,12 @@ a {
 li {
   list-style: none;
 }
-.contenthead {
-  float: left;
-  padding: 0;
-}
-.goto {
-  padding: 0 10px;
-  float: right;
-}
 .menu {
-  position: fixed;
-  width: 100%;
-}
-.container {
-  background-image: url(../img/background-logo.png);
-  width: 100%;
   position: absolute;
-  z-index: 50;
-  margin: 0;
-  padding: 0 20px;
-}
-.logotype {
-  vertical-align: middle;
-  width: 100px;
-  height: 100px;
-}
-.block-logo {
-  text-align: center;
-  vertical-align: top;
-  float: left;
-  width: 300px;
-}
-.indent {
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
   height: 100px;
 }
 .user_mode {
@@ -59,7 +27,7 @@ li {
   margin: 0px;
   width: 100%;
   z-index: 51;
-  position: absolute;
+  position: fixed;
 }
 .user_authorization {
   padding: 0px;
@@ -69,7 +37,7 @@ li {
   list-style: none;
   width: 100%;
 }
-.authorization_lb {
+.menu_label {
   height: 20px;
   float: left;
   padding: 0 5px 0;
@@ -80,4 +48,56 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 400;
+}
+.greeting {
+  font-size: 14px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-stretch: extra-expanded;
+  font-weight: bolder;
+  padding: 3px 0px;
+  display: inline-block;
+}
+.user_operations {
+  padding: 0px 20px;
+  margin: 3px 0;
+  height: 18px;
+  vertical-align: middle;
+  list-style: none;
+  float: right;
+}
+.exit {
+  font-weight: bold;
+  border-width: 0px;
+  background: white;
+}
+.container {
+  background-image: url(../img/background-logo.png);
+  width: 100%;
+  position: fixed;
+  z-index: 50;
+  margin: 0;
+  padding: 0 20px;
+}
+.block-logo {
+  text-align: center;
+  vertical-align: top;
+  float: left;
+  width: 300px;
+}
+.logotype {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+}
+.contenthead {
+  float: left;
+  padding: 0;
+}
+.goto {
+  padding: 0 10px;
+  float: right;
+}
+.indent {
+  height: 100px;
 }
