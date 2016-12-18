@@ -2,17 +2,17 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CarSchema = new Schema({
-  ID: Number,
+  Name: String,
   Producer: String,
-  Type: String,
-  CreationYear: Date,
-  PricePerHour: Number
+  CreationYear: Number,
+  Price: Number,
+  Image: String
 });
 
 CarSchema.methods.price = new function(counthour)
 {
     var result = 0;
-    result = parseInt(counthour) * this.PricePerHour;
+    result = parseInt(counthour) * this.Price;
     console.log(result);
     return result;
 }

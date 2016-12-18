@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var Users = mongoose.model('User');
 
 var checked = true;
+var logined = false;
 module.exports = function (app) 
 {
   app.use('/', router);
@@ -53,7 +54,7 @@ router.post('/login',function(req,res,next)
                     req.session.IsAuthorized = true;
                     req.session.UserRole = user.Role;
                     req.session.UserName = user.FirstName;
-                    res.redirect('/');
+                    res.redirect('/buycar');
                     break;
                 case 'admin':
                 case 'Admin':

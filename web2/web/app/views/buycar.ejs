@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title><%- title %></title>
+  <script src="/components/jquery/dist/jquery.js"></script>
+  <% if (ENV_DEVELOPMENT) { %>
+    <script src="http://localhost:35729/livereload.js"></script>
+  <% } %>
+</head>
+<body>
+    <link rel="stylesheet" href="/css/buycar.css">
+    <% include header %>
+    <div class = "buycar_main_form">
+        <script src="/js/buycar.js"/></script>
+        <div class = "car_container">
+                <h1 class = "page_header">Аренда автомобиля на день</h1>
+                <div class = "car_container_inner">
+                    <div class = "button_field">
+                        <button id = "7" name = "prev" class = "scroll_car">
+                            <img class = "arrow" src = "img/left-arrow2.jpg">
+                        </button>
+                    </div>
+                    <div class = "car_content">
+                        <img class = "car_image" src = "<%- car.Image %>">
+                        <div class = "label_info">
+                            <p class = "label_info_inner">Марка машины:</p>
+                            <p class = "car_name"><%= car.Name %></p>
+                        </div>
+                        
+                        <div class = "label_info">
+                            <p class = "label_info_inner">Страна-производитель:</p>
+                            <p class = "car_producer"><%= car.Producer %></p>
+                        </div>
+                        
+                        <div class = "label_info">
+                            <p class = "label_info_inner">Дата производства:</p>
+                            <p class = "car_creation_year"><%= car.CreationYear %></p>
+                        </div>                   
+                        <div class = "label_info">
+                            <p class = "label_info_inner">Стоимость за аренду:</p>
+                            <p class = "car_price"><%= car.Price %>$</p>
+                        </div>
+                        
+                    
+                    </div>
+                    <div class = "button_field">
+                        <button id = "1" name = "next" class = "scroll_car">
+                            <img class = "arrow" src = "img/rigth-arrow2.jpg">
+                        </button>
+                    </div>
+                </div>
+                
+                <div class = "buy_button_field">
+                    <button class = "buy_button">Арендовать</button>
+                <div>    
+        </div>   
+         
+    </div>
+    <% include footer %>
+</body>

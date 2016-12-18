@@ -1,0 +1,83 @@
+.page_header {
+  text-align: center;
+  font-size: 36px;
+}
+.car_container_inner {
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  width: 1000px;
+  height: 600px;
+}
+.button_field {
+  display: inline-block;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  width: 100px;
+  height: 600px;
+  position: center;
+}
+.car_content {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 600px;
+  height: 600px;
+}
+.scroll_car {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  border: 0;
+  width: 100px;
+  height: 600px;
+}
+.arrow {
+  margin: 0;
+  padding: 0;
+  width: inherit;
+  height: inherit;
+}
+.car_image {
+  width: 600px;
+  height: 400px;
+}
+p {
+  margin: 0;
+  width: 200px;
+  height: 50px;
+  text-align: left;
+}
+.label_info {
+  font-weight: bold;
+}
+.label_info_inner {
+  display: inline-block;
+}
+.car_name {
+  display: inline-block;
+}
+.car_producer {
+  display: inline-block;
+}
+.car_creation_year {
+  display: inline-block;
+}
+.car_price {
+  display: inline-block;
+}
+.buy_button_field {
+  margin: auto;
+  padding: 0;
+  width: 1000px;
+  height: 100px;
+  text-align: center;
+}
+.buy_button {
+  margin: auto;
+  padding: 0;
+  width: 1000px;
+  height: 100px;
+}

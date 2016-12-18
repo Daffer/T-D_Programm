@@ -118,7 +118,7 @@ router.post('/reg',function(req,res,next)
                 res.cookie("login",log);
                 res.cookie("password",pwd1);
                 console.log("redirect");
-                res.redirect('/');
+                res.redirect('/buycar');
             }
             else
                 res.redirect("/reg");
